@@ -16,3 +16,16 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+
+Route::get('/', [\App\Http\Controllers\web\WebController::class,'viewHome']);
+
+Route::get('/home',[\App\Http\Controllers\web\WebController::class,'viewHome']);
+
+Route::get('/login',[\App\Http\Controllers\web\WebController::class,'viewLogin']);
+Route::post('/login',[\App\Http\Controllers\web\WebController::class,'login']);
+
+Route::post('/logout',[\App\Http\Controllers\web\WebController::class,'logout']);
+
+
+Route::get('admin/home',[\App\Http\Controllers\admin\AdminController::class,'viewHome']);
