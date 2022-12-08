@@ -308,10 +308,15 @@ return [
         ],
 
         [
-            'text' => 'Trang chủ',
+            'text' => 'Thống Kê',
             'url' => 'admin/pages',
             'icon' => 'fas fa-home text-success',
             'label_color' => 'success',
+        ],
+        [
+            'text' => 'Quản Lý Sách ',
+            'url' => 'admin/products',
+            'icon' => 'fas fa-home text-success',
         ],
         [
             'text' => 'Quản lý đơn hàng',
@@ -320,12 +325,12 @@ return [
         ],
         [
             'text' => 'Thông tin cá nhân',
-            'url' => 'admin/settings',
+            'url' => 'admin/abouts',
             'icon' => 'fas fa-fw fa-user text-danger',
         ],
         [
             'text' => 'Đổi mật khẩu',
-            'url' => 'admin/settings',
+            'url' => 'admin/changepw',
             'icon' => 'fas fa-key',
         ],
 

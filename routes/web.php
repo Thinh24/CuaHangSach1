@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\admin\AdminController;
+use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\web\WebController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,14 +21,28 @@ Route::get('/', function () {
 });
 
 
-Route::get('/', [\App\Http\Controllers\web\WebController::class,'viewHome']);
+Route::get('/', [WebController::class,'viewHome']);
 
-Route::get('/home',[\App\Http\Controllers\web\WebController::class,'viewHome']);
+Route::get('/home',[WebController::class,'viewHome']);
 
-Route::get('/login',[\App\Http\Controllers\web\WebController::class,'viewLogin']);
-Route::post('/login',[\App\Http\Controllers\web\WebController::class,'login']);
+Route::get('/login',[WebController::class,'viewLogin']);
+Route::post('/login',[WebController::class,'login']);
 
-Route::post('/logout',[\App\Http\Controllers\web\WebController::class,'logout']);
+Route::post('/logout',[WebController::class,'logout']);
 
 
-Route::get('admin/home',[\App\Http\Controllers\admin\AdminController::class,'viewHome']);
+Route::get('admin/home',[AdminController::class,'viewHome']);
+
+
+// Products
+Route::get('/admin/products/create', [ProductController::class,'viewCreateProduct']);
+Route::post('/admin/products/create', [ProductController::class,'createProduct']);
+
+Route::get('/admin/products',[ProductController::class,'viewAllProducts']);
+
+Route::get('/admin/products/{id}',[ProductController::class,'viewProductById']);
+
+Route::put('/admin/products/{id}',[ProductController::class,'updateProductById']);
+
+Route::delete('/admin/products/{id}',[ProductController::class,'deleteProductById']);
+
