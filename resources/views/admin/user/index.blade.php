@@ -1,49 +1,48 @@
 @extends('layout.base')
 
 @section('content')
-<h1>All Books</h1>
-    <a href="{{url('admin/products/create')}}">Thêm Sản Phẩm</a>
-    <br>
+<h1>All User</h1>
         <form >
             <input name="kw" class="form-control" type="text" placeholder="Nhập từ khóa cần tìm kiếm">
             <button type="submit" hidden class="btn btn-primary">Tìm</button>
         </form>
     <table class="table table-bordered table-striped table-responsive-md ">
         <tr class="table-primary">
-            <th>ID</th>
-            <th>Tên Sách</th>
-            <th>Tác Giả</th>
-            <th>Thể Loại</th>
-            <th>Giá Sản Phẩm</th>
-            <th>Mã ISBN</th>
+            <th>Id</th>
+            <th>Tên user</th>
+            <th>Ngày tháng năm sinh</th>
+            <th>Số Điện thoại</th>
+            <th>Địa chỉ</th>
+            <th>Email</th>
             <th>Hành Động</th>
         </tr>
-        @forelse($products as $product)
+        @forelse($users as $nguoidung)
+
             <tr>
-                <td>{{ $product->id }}</td>
-                <td>
-                    <a href="{{ url('admin/products/'.$product->id) }}">
-                        {{$product -> tenSanPham}}
-                    </a>
+                <td>{{$nguoidung->id}}
                 </td>
                 <td>
-                    {{$product -> tacGia}}
+                    {{$nguoidung->name}}
                 </td>
                 <td>
-                    {{$product -> theLoai}}
+                    {{$nguoidung->dob}}
                 </td>
                 <td>
-                    {{$product -> giaSanPham}}
+                    {{$nguoidung->phonenb}}
                 </td>
                 <td>
-                    {{$product -> maISBN}}
+                    {{$nguoidung->address}}
                 </td>
                 <td>
-                    <button>Sửa</button>
-                    <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/products/'.$product->id)}}">
+                    {{$nguoidung->email}}
+                </td>
+                <td>
+                    <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/users/'.$nguoidung->id)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Xóa</button>
+
+                    </form>
 
                     </form>
                 </td>
@@ -56,5 +55,5 @@
             </tr>
         @endempty
     </table>
-    {{ $products->links() }}
+    {{ $users->links() }}
 @endsection

@@ -314,6 +314,11 @@ return [
             'label_color' => 'success',
         ],
         [
+            'text' => 'Quản Lý User ',
+            'url' => 'admin/users',
+            'icon' => 'fas fa-fw fa-user text-danger',
+        ],
+        [
             'text' => 'Quản Lý Sách ',
             'url' => 'admin/products',
             'icon' => 'fas fa-home text-success',

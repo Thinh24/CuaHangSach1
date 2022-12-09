@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -38,10 +39,29 @@ class WebController extends Controller
                 return redirect('/admin/home');
             }
             else{
-                return redirect('/ph');
+                return redirect('/home');
             }
         }
     }
+    function viewRegister(){
+        return view('web.register');
+    }
+    function createRegister(Request $request){
+        $data = $request->all();
+        $this -> redirectTo = '/login';
+
+        User::factory()->create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
+            'isAdmin' => false,
+            'isActive' => false,
+        ]);
+
+
+        return redirect('/login');
+    }
+
 
     // POST: localhost/logout
     function logout(){
