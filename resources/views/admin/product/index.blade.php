@@ -18,29 +18,29 @@
             <th>Mã ISBN</th>
             <th>Hành Động</th>
         </tr>
-        @forelse($products as $products)
+        @forelse($products as $product)
             <tr>
-                <td>{{ $products->id }}</td>
+                <td>{{ $product->id }}</td>
                 <td>
-                    <a href="{{ url('admin/products/'.$products->id) }}">
-                        {{$products -> tenSanPham}}
+                    <a href="{{ url('admin/products/'.$product->id) }}">
+                        {{$product -> tenSanPham}}
                     </a>
                 </td>
                 <td>
-                    {{$products -> tacGia}}
+                    {{$product -> tacGia}}
                 </td>
                 <td>
-                    {{$products -> theLoai}}
+                    {{$product -> theLoai}}
                 </td>
                 <td>
-                    {{$products -> giaSanPham}}
+                    {{$product -> giaSanPham}}
                 </td>
                 <td>
-                    {{$products -> maISBN}}
+                    {{$product -> maISBN}}
                 </td>
                 <td>
                     <button>Sửa</button>
-                    <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/products/'.$products->id)}}">
+                    <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/products/'.$product->id)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Xóa</button>
@@ -56,4 +56,6 @@
             </tr>
         @endempty
     </table>
+
+    {{ $products->links() }}
 @endsection

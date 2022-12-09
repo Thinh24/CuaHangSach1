@@ -18,12 +18,12 @@ class ProductController extends Controller
     function viewAllProducts(Request $request){
         $kw = $request->get('kw','');
         if(empty($kw)){
-            $products = Product::paginate(5);
+            $products = Product::paginate(2);
         }
         else{
             $products = Product::where('id','LIKE','%'.$kw.'%')
                 ->orWhere('tenSanPham','LIKE','%'.$kw.'%')
-                ->paginate(5);
+                ->paginate(2);
         }
         return view('admin/product/index', ['products' => $products]);
     }
