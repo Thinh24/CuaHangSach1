@@ -17,12 +17,12 @@ return new class extends Migration
             $table->id();
             $table->string('tenSanPham');
             $table->string('tacGia');
-            $table->foreignId('id_nha_xuat_bans')->constrained('nha_xuat_bans');
+            $table->string('image',1000);
+            $table->foreignId('id_nha_xuat_ban')->constrained('nha_xuat_bans');
             $table->string('theLoai');
             $table->integer('giaSanPham');
             $table->string('maISBN');
             $table->text('moTa');
-            $table->foreignId('id_hinh_anhs')->constrained('hinh_anhs');
             $table->timestamps();
         });
     }

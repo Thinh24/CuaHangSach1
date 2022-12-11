@@ -25,6 +25,8 @@
                     <a href="{{ url('admin/products/'.$product->id) }}">
                         {{$product -> tenSanPham}}
                     </a>
+                    <br>
+                    <img width="100 px" src="{{asset( $product -> image  )}}">
                 </td>
                 <td>
                     {{$product -> tacGia}}
@@ -39,7 +41,9 @@
                     {{$product -> maISBN}}
                 </td>
                 <td>
-                    <button>Sửa</button>
+                    <a href="{{ url('admin/products/'.$product->id.'/edit' )}} " class="btn btn-success">Sửa</a>
+                    @csrf
+                    @method('')
                     <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/products/'.$product->id)}}">
                         @csrf
                         @method('DELETE')

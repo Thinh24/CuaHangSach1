@@ -43,16 +43,6 @@
                     @endforelse
                     </select>
                 </div>
-{{--                <div class="col">--}}
-{{--                    <label>Hình Ảnh</label>--}}
-{{--                    <select name="hinhAnh" class="form-control">--}}
-{{--                    @forelse($hinhAnh as $hinhAnhs)--}}
-{{--                            <option value="{{$hinhAnhs->id}}">{{$hinhAnhs->anhURL}}</option>--}}
-{{--                    @empty--}}
-{{--                        <option>Không có ảnh phù hợp</option>--}}
-{{--                    @endforelse--}}
-{{--                    </select>--}}
-{{--                </div>--}}
             </div>
             <div class="rol">
                 <div class="col">
