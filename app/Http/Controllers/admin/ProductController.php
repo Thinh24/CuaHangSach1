@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\nhaXuatBan;
+use App\Models\publishingCompany;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,8 +34,8 @@ class ProductController extends Controller
     }
 
     function viewCreateProduct(){
-        $nhaXuatBan = nhaXuatBan::all();
-        return view('admin/product/create', ['nhaXuatBan'=>$nhaXuatBan]);
+        $nhaXuatBan = publishingCompany::all();
+        return view('admin/product/create', ['publishingCompany'=>$nhaXuatBan]);
 
     }
 
@@ -50,7 +50,7 @@ class ProductController extends Controller
         $product->theLoai = $request->get('theLoai');
         $product->giaSanPham = $request->get('gia');
         $product->maISBN = $request->get('maISBN');
-        $product->id_nha_xuat_ban = $request->get('nhaXuatBan');
+        $product->id_nha_xuat_ban = $request->get('publishingCompany');
         $product->moTa = $request->get('description');
 
         $product->save();
@@ -59,8 +59,8 @@ class ProductController extends Controller
 
     function editProductById($id){
         $product = DB::table('products')->find($id);
-        $nhaXuatBan = nhaXuatBan::all();
-        return view('admin/product/edit', ['product'=>$product],['nhaXuatBan'=>$nhaXuatBan]);
+        $nhaXuatBan = publishingCompany::all();
+        return view('admin/product/edit', ['product'=>$product],['publishingCompany'=>$nhaXuatBan]);
     }
     function updateProductById(Request $request, $id){
         $product = DB::table('products')->find($id);
@@ -74,7 +74,7 @@ class ProductController extends Controller
         $product->theLoai = $request->get('theLoai');
         $product->giaSanPham = $request->get('gia');
         $product->maISBN = $request->get('maISBN');
-        $product->id_nha_xuat_ban = $request->get('nhaXuatBan');
+        $product->id_nha_xuat_ban = $request->get('publishingCompany');
         $product->moTa = $request->get('description');
 
         DB::table('products')->where('id',$id)->update(

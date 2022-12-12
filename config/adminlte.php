@@ -320,7 +320,7 @@ return [
         ],
         [
             'text' => 'Quản Lý NXB ',
-            'url' => 'admin/NhaXuatBan',
+            'url' => 'admin/publishers',
             'icon' => 'fas fa-home text-success',
         ],
         [

@@ -21,7 +21,7 @@
         </tr>
         @forelse($products as $product)
             <tr>
-                <td>{{ $product->id }}</td>
+                <td>{{$product->id }}</td>
                 <td>
                     <a href="{{ url('admin/products/'.$product->id) }}">
                         {{$product -> tenSanPham}}

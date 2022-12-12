@@ -1,25 +1,23 @@
 @extends('layout.base')
 
-@section('title','Sửa Nhà Xuât Bản')
+@section('title','Thêm Nhà Xuất Bản')
 @section('content')
-    <br>
-    <br>
-    <form action="{{ url('/admin/NhaXuatBan/'.$nha_xuat_bans->id.'/edit')}}" method="POST" enctype="multipart/form-data">
+<br>
+<br>
+    <form method="POST" enctype="multipart/form-data">
         @csrf
-        @method('PUT')
         <div class="container">
             <div class="row">
                 <div class="col">
-                    <label>Tên Nhà Xuât Bản</label>
-                    <input value=" {{ $nha_xuat_bans->tenNhaXuatBan }}" name="tenNhaXuatBan" type="text" placeholder="Nhập tên Nhà Xuât Bản" required>
+                    <label>Tên Nhà Xuất Bản</label>
+                    <input name="namePublishers" type="text" placeholder="Nhập tên Nhà Xuất Bản" required>
                 </div>
             </div>
-
             <div class="rol">
                 <br>
                 <div class="row">
                     <div class="rol text-center">
-                        <button class="btn btn-primary">Sửa Nhà Xuât Bản</button>
+                        <button class="btn btn-primary">Thêm Nhà Xuất Bản</button>
                     </div>
                 </div>
             </div>
@@ -40,5 +38,3 @@
             } );
     </script>
 @endsection
-
-

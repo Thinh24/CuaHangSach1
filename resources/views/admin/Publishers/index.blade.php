@@ -2,7 +2,7 @@
 
 @section('content')
 <h1>All Nhà Xuất Bản</h1>
-    <a href="{{url('admin/NhaXuatBan/create')}}">Thêm Nhà Xuất Bản</a>
+    <a href="{{url('admin/publishers/create')}}">Thêm Nhà Xuất Bản</a>
     <br>
         <form >
             <input name="kw" class="form-control" type="text" placeholder="Nhập từ khóa cần tìm kiếm">
@@ -15,16 +15,16 @@
             <th>Hành Động</th>
 
         </tr>
-        @forelse($nha_xuat_bans as $nha_xuat_ban)
+        @forelse($publishers as $publisher)
             <tr>
-                <td>{{$nha_xuat_ban->id }}</td>
-                <td>{{$nha_xuat_ban -> tenNhaXuatBan}}<br>
+                <td>{{$publisher->id }}</td>
+                <td>{{$publisher -> namePublishers}}<br>
 
                 <td>
-                    <a href="{{ url('admin/NhaXuatBan/'.$nha_xuat_ban->id.'/edit' )}} " class="btn btn-success">Sửa</a>
+                    <a href="{{ url('admin/publishers/'.$publisher->id.'/edit' )}} " class="btn btn-success">Sửa</a>
                     @csrf
                     @method('')
-                    <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/NhaXuatBan/'.$nha_xuat_ban->id)}}">
+                    <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/publishers/'.$publisher->id)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Xóa</button>
@@ -40,5 +40,5 @@
             </tr>
         @endempty
     </table>
-    {{ $nha_xuat_bans->links() }}
+    {{ $publishers->links() }}
 @endsection

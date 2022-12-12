@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('author');
             $table->string('image',1000);
             $table->integer('quantity');
-            $table->foreignId('id_publishing_company')->constrained('publishing_company');
+            $table->foreignId('id_publishers')->constrained('publishers');
             $table->string('category');
             $table->integer('price');
             $table->string('ISBN');
