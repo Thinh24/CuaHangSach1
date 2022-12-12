@@ -18,10 +18,10 @@ return new class extends Migration
             $table->string('nameProduct');
             $table->string('author');
             $table->string('image',1000);
-            $table->integer('quantity');
+            $table->string('quantity');
             $table->foreignId('id_publishers')->constrained('publishers');
             $table->string('category');
-            $table->integer('price');
+            $table->string('price');
             $table->string('ISBN');
             $table->text('des');
             $table->timestamps();

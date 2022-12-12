@@ -15,6 +15,7 @@
             <th>Tác Giả</th>
             <th>NXB</th>
             <th>Thể Loại</th>
+            <th>Số Lượng</th>
             <th>Giá Sản Phẩm</th>
             <th>Mã ISBN</th>
             <th>Hành Động</th>
@@ -24,25 +25,28 @@
                 <td>{{$product->id }}</td>
                 <td>
                     <a href="{{ url('admin/products/'.$product->id) }}">
-                        {{$product -> tenSanPham}}
+                        {{$product -> nameProduct}}
                     </a>
                     <br>
                     <img width="100 px" src="{{asset( $product -> image  )}}">
                 </td>
                 <td>
-                    {{$product -> tacGia}}
+                    {{$product -> author}}
                 </td>
                 <td>
-                    {{$product -> id_nha_xuat_ban}}
+                    {{$product -> id_publishers}}
                 </td>
                 <td>
-                    {{$product -> theLoai}}
+                    {{$product -> category}}
                 </td>
                 <td>
-                    {{$product -> giaSanPham}}{{" VND"}}
+                    {{$product -> quantity}}
                 </td>
                 <td>
-                    {{$product -> maISBN}}
+                    {{$product -> price}}{{" VND"}}
+                </td>
+                <td>
+                    {{$product -> ISBN}}
                 </td>
                 <td>
                     <a href="{{ url('admin/products/'.$product->id.'/edit' )}} " class="btn btn-success">Sửa</a>

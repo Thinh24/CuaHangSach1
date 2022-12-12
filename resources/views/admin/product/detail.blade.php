@@ -15,6 +15,7 @@
                 <th>Tác Giả</th>
                 <th>Hình Ảnh</th>
                 <th>Thể Loại</th>
+                <th>Số Lượng</th>
                 <th>Giá Sản Phẩm</th>
                 <th>Mã ISBN</th>
                 <th>Nhà Xuất Bản</th>
@@ -23,26 +24,29 @@
             <tr>
                 <td>{{$products->id }}</td>
                 <td>
-                    {{$products -> tenSanPham}}
+                    {{$products -> nameProduct}}
                 </td>
                 <td>
-                    {{$products -> tacGia}}
+                    {{$products -> author}}
                 </td>
                 <td><img width="150px" src="{{asset( $products->image)}}"></td>
                 <td>
-                    {{$products -> theLoai}}
+                    {{$products -> category}}
                 </td>
                 <td>
-                    {{$products -> giaSanPham}}
+                    {{$products -> quantity}}
                 </td>
                 <td>
-                    {{$products -> maISBN}}
+                    {{$products -> price}}{{(" VND")}}
                 </td>
                 <td>
-                    {{$products -> id_nha_xuat_ban}}
+                    {{$products -> ISBN}}
+                </td>
+                <td>
+                    {{$products -> id_publishers}}
                 </td>
                 <td><br>
-                    {{$products -> moTa}}
+                    {{$products -> des}}
                 </td>
             </tr>
         </table>

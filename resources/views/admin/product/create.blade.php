@@ -31,14 +31,20 @@
                     <br>
                     <input name="maISBN" type="number" placeholder="Mã ISBN" required>
                 </div>
+                <div class="col">
+                    <br>
+                    <label>Số Lượng</label>
+                    <br>
+                    <input name="soLuong" type="number" placeholder="Số Lượng" required>
+                </div>
 
                 <div class="col">
                     <br>
                     <label>Nhà Xuất Bản</label>
                     <br>
                     <select name="nhaXuatBan" class="form-control" >
-                    @forelse($nhaXuatBan as $nhaXuatBans)
-                        <option value="{{$nhaXuatBans->id}}">{{$nhaXuatBans->tenNhaXuatBan}}</option>
+                    @forelse($publishers as $publisher)
+                        <option value="{{$publisher->id}}">{{$publisher->namePublishers}}</option>
                     @empty
                         <option>Không có nhà xuất bản nào</option>
                     @endforelse

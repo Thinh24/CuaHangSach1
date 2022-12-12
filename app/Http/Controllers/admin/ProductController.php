@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\publishingCompany;
+use App\Models\publishers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -34,8 +34,8 @@ class ProductController extends Controller
     }
 
     function viewCreateProduct(){
-        $nhaXuatBan = publishingCompany::all();
-        return view('admin/product/create', ['publishingCompany'=>$nhaXuatBan]);
+        $publishers = publishers::all();
+        return view('admin/product/create', ['publishers'=>$publishers]);
 
     }
 
@@ -45,13 +45,14 @@ class ProductController extends Controller
 
         $product = new Product();
         $product->image = 'image/'.$imageName;
-        $product->tenSanPham = $request->get('tenSach');
-        $product->TacGia = $request->get('tenTacGia');
-        $product->theLoai = $request->get('theLoai');
-        $product->giaSanPham = $request->get('gia');
-        $product->maISBN = $request->get('maISBN');
-        $product->id_nha_xuat_ban = $request->get('publishingCompany');
-        $product->moTa = $request->get('description');
+        $product->nameProduct = $request->get('tenSach');
+        $product->author = $request->get('tenTacGia');
+        $product->category = $request->get('theLoai');
+        $product->quantity = $request->get('soLuong');
+        $product->price = $request->get('gia');
+        $product->ISBN = $request->get('maISBN');
+        $product->id_publishers = $request->get('nhaXuatBan');
+        $product->des = $request->get('description');
 
         $product->save();
         return redirect('/admin/products');
@@ -59,8 +60,8 @@ class ProductController extends Controller
 
     function editProductById($id){
         $product = DB::table('products')->find($id);
-        $nhaXuatBan = publishingCompany::all();
-        return view('admin/product/edit', ['product'=>$product],['publishingCompany'=>$nhaXuatBan]);
+        $publishers = publishers::all();
+        return view('admin/product/edit', ['product'=>$product],['publishers'=>$publishers]);
     }
     function updateProductById(Request $request, $id){
         $product = DB::table('products')->find($id);
@@ -69,18 +70,19 @@ class ProductController extends Controller
 
 //        $product = new Product();
         $product->image = 'image/'.$imageName;
-        $product->tenSanPham = $request->get('tenSach');
-        $product->tacGia = $request->get('tenTacGia');
-        $product->theLoai = $request->get('theLoai');
-        $product->giaSanPham = $request->get('gia');
-        $product->maISBN = $request->get('maISBN');
-        $product->id_nha_xuat_ban = $request->get('publishingCompany');
-        $product->moTa = $request->get('description');
+        $product->nameProduct = $request->get('tenSach');
+        $product->author = $request->get('tenTacGia');
+        $product->category = $request->get('theLoai');
+        $product->quantity = $request->get('soLuong');
+        $product->price = $request->get('gia');
+        $product->ISBN = $request->get('maISBN');
+        $product->id_publishers = $request->get('nhaXuatBan');
+        $product->des = $request->get('description');
 
         DB::table('products')->where('id',$id)->update(
-            ['tenSanPham'=>$product->tenSanPham, 'tacGia'=>$product->tacGia,'image'=>$product->image,
-                'theLoai'=> $product->theLoai ,'giaSanPham'=>$product->giaSanPham,'maISBN'=> $product->maISBN,
-                'id_nha_xuat_ban'=> $product->id_nha_xuat_ban,'moTa'=>  $product->moTa]
+            ['nameProduct'=>$product->nameProduct, 'author'=>$product->author,'image'=>$product->image,
+                'category'=> $product->category ,'quantity'=>$product->quantity,'price'=>$product->price,'ISBN'=> $product->ISBN,
+                'id_publishers'=> $product->id_publishers,'des'=>  $product->des]
         );
         return redirect('admin/products');
     }
