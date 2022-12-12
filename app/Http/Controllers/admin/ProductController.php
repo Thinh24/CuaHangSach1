@@ -67,7 +67,6 @@ class ProductController extends Controller
         $imageName = time().".".$request->file('image')->extension();
         $request->file('image')->move(public_path('image'),$imageName);
 
-//        $product = new Product();
         $product->image = 'image/'.$imageName;
         $product->tenSanPham = $request->get('tenSach');
         $product->tacGia = $request->get('tenTacGia');
@@ -82,7 +81,7 @@ class ProductController extends Controller
                 'theLoai'=> $product->theLoai ,'giaSanPham'=>$product->giaSanPham,'maISBN'=> $product->maISBN,
                 'id_nha_xuat_ban'=> $product->id_nha_xuat_ban,'moTa'=>  $product->moTa]
         );
-        return redirect()->back();
+        return redirect('admin/products');
     }
 
     function deleteProductById($id){
