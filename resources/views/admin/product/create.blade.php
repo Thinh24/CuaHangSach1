@@ -31,6 +31,7 @@
                     <br>
                     <input name="maISBN" type="number" placeholder="Mã ISBN" required>
                 </div>
+
                 <div class="col">
                     <br>
                     <label>Nhà Xuất Bản</label>
@@ -43,6 +44,7 @@
                     @endforelse
                     </select>
                 </div>
+
             </div>
             <div class="rol">
                 <div class="col">

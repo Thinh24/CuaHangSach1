@@ -21,7 +21,7 @@
                 <th>Mô Tả</th>
             </tr>
             <tr>
-                <td>{{ $products->id }}</td>
+                <td>{{$products->id }}</td>
                 <td>
                     {{$products -> tenSanPham}}
                 </td>

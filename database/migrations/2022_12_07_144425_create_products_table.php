@@ -17,10 +17,9 @@ return new class extends Migration
             $table->id();
             $table->string('tenSanPham');
             $table->string('tacGia');
-
             $table->string('image',1000);
-
             $table->foreignId('id_nha_xuat_ban')->constrained('nha_xuat_bans');
+            $table->integer('soLuong');
             $table->string('theLoai');
             $table->integer('giaSanPham');
             $table->string('maISBN');

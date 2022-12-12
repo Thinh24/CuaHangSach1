@@ -32,18 +32,23 @@
                     <br>
                     <input value=" {{ $product->maISBN }}" name="maISBN" type="number" placeholder="Mã ISBN" required>
                 </div>
+
+
 {{--                <div class="col">--}}
 {{--                    <br>--}}
 {{--                    <label>Nhà Xuất Bản</label>--}}
 {{--                    <br>--}}
 {{--                    <select name="nhaXuatBan" class="form-control" >--}}
 {{--                        @forelse($nhaXuatBan as $nhaXuatBans)--}}
-{{--                            <option value="{{$nhaXuatBans->id}}" {{$nhaXuatBans->id == $product->id_nha_xuat_ban ? 'selected': ''}}>{{$nhaXuatBans->tenNhaXuatBan}}</option>--}}
+{{--                            <option value="{{$nhaXuatBans->id}}">{{$nhaXuatBans->tenNhaXuatBan}}</option>--}}
 {{--                        @empty--}}
 {{--                            <option>Không có nhà xuất bản nào</option>--}}
 {{--                        @endforelse--}}
 {{--                    </select>--}}
 {{--                </div>--}}
+
+
+
             </div>
             <div class="rol">
                 <div class="col">

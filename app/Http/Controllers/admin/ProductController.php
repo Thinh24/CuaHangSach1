@@ -59,13 +59,15 @@ class ProductController extends Controller
 
     function editProductById($id){
         $product = DB::table('products')->find($id);
-        return view('admin/product/edit', ['product'=>$product]);
+        $nhaXuatBan = nhaXuatBan::all();
+        return view('admin/product/edit', ['product'=>$product],['nhaXuatBan'=>$nhaXuatBan]);
     }
     function updateProductById(Request $request, $id){
+        $product = DB::table('products')->find($id);
         $imageName = time().".".$request->file('image')->extension();
         $request->file('image')->move(public_path('image'),$imageName);
 
-        $product = new Product();
+//        $product = new Product();
         $product->image = 'image/'.$imageName;
         $product->tenSanPham = $request->get('tenSach');
         $product->tacGia = $request->get('tenTacGia');

@@ -39,7 +39,7 @@
                     {{$product -> theLoai}}
                 </td>
                 <td>
-                    {{$product -> giaSanPham}}
+                    {{$product -> giaSanPham}}{{" VND"}}
                 </td>
                 <td>
                     {{$product -> maISBN}}
