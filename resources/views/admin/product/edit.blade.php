@@ -34,18 +34,18 @@
                 </div>
 
 
-{{--                <div class="col">--}}
-{{--                    <br>--}}
-{{--                    <label>Nhà Xuất Bản</label>--}}
-{{--                    <br>--}}
-{{--                    <select name="nhaXuatBan" class="form-control" >--}}
-{{--                        @forelse($nhaXuatBan as $nhaXuatBans)--}}
-{{--                            <option value="{{$nhaXuatBans->id}}">{{$nhaXuatBans->tenNhaXuatBan}}</option>--}}
-{{--                        @empty--}}
-{{--                            <option>Không có nhà xuất bản nào</option>--}}
-{{--                        @endforelse--}}
-{{--                    </select>--}}
-{{--                </div>--}}
+                <div class="col">
+                    <br>
+                    <label>Nhà Xuất Bản</label>
+                    <br>
+                    <select name="nhaXuatBan" class="form-control" >
+                        @forelse($nhaXuatBan as $nhaXuatBans)
+                            <option value="{{$nhaXuatBans->id}}">{{$nhaXuatBans->tenNhaXuatBan}}</option>
+                        @empty
+                            <option>Không có nhà xuất bản nào</option>
+                        @endforelse
+                    </select>
+                </div>
 
 
 
