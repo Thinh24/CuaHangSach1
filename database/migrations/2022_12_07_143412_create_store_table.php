@@ -13,9 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nha_xuat_bans', function (Blueprint $table) {
+        Schema::create('store', function (Blueprint $table) {
             $table->id();
-            $table->string('tenNhaXuatBan');
+            $table->string('storeName');
+            $table->string('address');
+            $table->string('phone', 10);
             $table->timestamps();
         });
     }
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nha_xuat_ban');
+        Schema::dropIfExists('store');
     }
 };

@@ -13,11 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nha_cung_cap', function (Blueprint $table) {
+        Schema::create('warehouse', function (Blueprint $table) {
             $table->id();
-            $table->string('tenNhaCungCap');
-            $table->string('diaChi');
-            $table->string('phone',10);
+            $table->date('date');
+            $table->foreignId('id_users')->constrained('users');
+            $table->foreignId('id_warehouse')->constrained('warehouse');
+            $table->foreignId('id_storage')->constrained('storage');
             $table->timestamps();
         });
     }
@@ -29,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nha_cung_cap');
+        Schema::dropIfExists('warehouse');
     }
 };

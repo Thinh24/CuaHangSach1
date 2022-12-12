@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nhap_kho', function (Blueprint $table) {
+        Schema::create('category', function (Blueprint $table) {
             $table->id();
-            $table->date('ngayNhap');
-            $table->foreignId('id_users')->constrained('users');
-            $table->foreignId('id_nha_cung_cap')->constrained('nha_cung_cap');
-            $table->foreignId('id_kho')->constrained('kho');
+            $table->string('nameCategory');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhap_kho');
+        Schema::dropIfExists('category');
     }
 };

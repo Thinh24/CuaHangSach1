@@ -13,10 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('kho', function (Blueprint $table) {
+        Schema::create('warehouse_detail', function (Blueprint $table) {
             $table->id();
-            $table->string('diaChi');
-            $table->foreignId('id_cua_hang')->constrained('cua_hang');
+            $table->foreignId('id_warehouse')->constrained('warehouse');
+            $table->foreignId('id_products')->constrained('products');
+            $table->integer('quantity');
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('_kho');
+        Schema::dropIfExists('warehouser_detail');
     }
 };

@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('chi_tiet_hoa_don', function (Blueprint $table) {
+        Schema::create('payment', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_products')->constrained('products');
-            $table->foreignId('id_hoa_don')->constrained('hoa_don');
-            $table->integer('soLuong');
-            $table->integer('giaSanPham');
+            $table->string('paymentName');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('chi_tiet_hoa_don');
+        Schema::dropIfExists('payment');
     }
 };

@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('hoa_don', function (Blueprint $table) {
+        Schema::create('publishing_company', function (Blueprint $table) {
             $table->id();
-            $table->date('ngayTao');
-            $table->string('trangThai');
-            $table->foreignId('id_users')->constrained('users');
-            $table->foreignId('id_phuong_thuc_thanh_toan')->constrained('phuong_thuc_thanh_toan');
+            $table->string('namePublishing_Company');
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('hoa_don');
+        Schema::dropIfExists('publishing_company');
     }
 };

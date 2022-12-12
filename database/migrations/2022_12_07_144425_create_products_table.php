@@ -15,17 +15,15 @@ return new class extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->id();
-            $table->string('tenSanPham');
-            $table->string('tacGia');
+            $table->string('nameProduct');
+            $table->string('author');
             $table->string('image',1000);
-            $table->foreignId('id_nha_xuat_ban')->constrained('nha_xuat_bans');
-            $table->integer('soLuong');
-            $table->string('theLoai');
-            $table->integer('giaSanPham');
-            $table->string('maISBN');
-            $table->text('moTa');
-
-//            $table->foreignId('id_hinh_anh')->constrained('hinh_anhs');
+            $table->integer('quantity');
+            $table->foreignId('id_publishing_company')->constrained('publishing_company');
+            $table->string('category');
+            $table->integer('price');
+            $table->string('ISBN');
+            $table->text('des');
             $table->timestamps();
         });
     }

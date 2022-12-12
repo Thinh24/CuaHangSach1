@@ -13,9 +13,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('phuong_thuc_thanh_toan', function (Blueprint $table) {
+        Schema::create('storage', function (Blueprint $table) {
             $table->id();
-            $table->string('tenPTTT');
+            $table->string('address');
+            $table->foreignId('id_store')->constrained('store');
             $table->timestamps();
         });
     }
@@ -27,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('phuong_thuc_thanh_toan');
+        Schema::dropIfExists('storage');
     }
 };

@@ -13,12 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('nhap_kho_chi_tiet', function (Blueprint $table) {
+        Schema::create('bill_detail', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('id_nhap_kho')->constrained('nhap_kho');
             $table->foreignId('id_products')->constrained('products');
-            $table->integer('soLuong');
-            $table->integer('gia');
+            $table->foreignId('id_bill')->constrained('bill');
+            $table->integer('quantity');
+            $table->integer('price');
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('nhap_kho_chi_tiet');
+        Schema::dropIfExists('bill_detail');
     }
 };
