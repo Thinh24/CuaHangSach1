@@ -55,6 +55,19 @@ Route::put('/admin/products/{id}/edit',[ProductController::class,'updateProductB
 // Xóa
 Route::delete('/admin/products/{id}',[ProductController::class,'deleteProductById']);
 
+// Nxb
+// Tạo
+Route::get('/admin/NhaXuatBan/create', [\App\Http\Controllers\admin\NhaXuatBanController::class,'viewCreateNhaXuatBan']);
+Route::post('/admin/NhaXuatBan/create', [\App\Http\Controllers\admin\NhaXuatBanController::class,'createNhaXuatBan']);
+// Xem
+Route::get('/admin/NhaXuatBan',[\App\Http\Controllers\admin\NhaXuatBanController::class,'viewAllNhaXuatBan']);
+// Sửa
+// admin sửa
+Route::get('/admin/NhaXuatBan/{id}/edit',[\App\Http\Controllers\admin\NhaXuatBanController::class,'editNhaXuatBanById']);
+// custom sửa
+Route::put('/admin/NhaXuatBan/{id}/edit',[\App\Http\Controllers\admin\NhaXuatBanController::class,'updateNhaXuatBanById']);
+// Xóa
+Route::delete('/admin/NhaXuatBan/{id}',[\App\Http\Controllers\admin\NhaXuatBanController::class,'deleteNhaXuatBanById']);
 
 
 

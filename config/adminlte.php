@@ -319,6 +319,11 @@ return [
             'icon' => 'fas fa-fw fa-user text-danger',
         ],
         [
+            'text' => 'Quản Lý NXB ',
+            'url' => 'admin/NhaXuatBan',
+            'icon' => 'fas fa-home text-success',
+        ],
+        [
             'text' => 'Quản Lý Sách ',
             'url' => 'admin/products',
             'icon' => 'fas fa-home text-success',

@@ -13,6 +13,7 @@
             <th>ID</th>
             <th>Tên Sách</th>
             <th>Tác Giả</th>
+            <th>NXB</th>
             <th>Thể Loại</th>
             <th>Giá Sản Phẩm</th>
             <th>Mã ISBN</th>
@@ -30,6 +31,9 @@
                 </td>
                 <td>
                     {{$product -> tacGia}}
+                </td>
+                <td>
+                    {{$product -> id_nha_xuat_ban}}
                 </td>
                 <td>
                     {{$product -> theLoai}}
