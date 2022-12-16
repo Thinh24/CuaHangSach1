@@ -15,14 +15,16 @@
 
 <!-- header -->
 @include('web.header')
-<!-- khoi sach moi  -->
+<!-- header -->
 
+<!-- body -->
 @include('web.body')
+<!-- body -->
 
 <!-- footer  -->
-<footer>
-    @include('web.footer')
-</footer>
+@include('web.footer')
+<!-- footer  -->
+
 
 <!-- nut cuon len dau trang -->
 <div class="fixed-bottom">

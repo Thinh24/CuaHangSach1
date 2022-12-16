@@ -17,8 +17,27 @@
                     <input name="tenTacGia" type="text" placeholder="Nhập tên tác giả" required>
                 </div>
                 <div class="col">
-                    <label>Thể loại</label>
-                    <input name="theLoai" type="text" placeholder="Thể loại" required>
+{{--                    <label>Thể loại</label>--}}
+{{--                    <br>--}}
+{{--                    <select name="theLoai" class="form-control" class="select" multiple >--}}
+{{--                        @forelse($categories as $category)--}}
+{{--                            <option value="{{$category->id}}">{{$category->nameCategory}}</option>--}}
+{{--                        @empty--}}
+{{--                            <option>Không có thể loại nào</option>--}}
+{{--                        @endforelse--}}
+{{--                    </select>--}}
+
+                    <label>
+                        Thể loại
+                        <input mbsc-input id="theLoai" data-dropdown="true" data-tags="true" />
+                    </label>
+                    <select id="multiple-select" multiple>
+                        @forelse($categories as $category)
+                            <option value="{{$category->id}}">{{$category->nameCategory}}</option>
+                        @empty
+                            <option>Không có thể loại nào</option>
+                        @endforelse
+                    </select>
                 </div>
                 <div class="col">
                     <label>Giá</label>
@@ -85,5 +104,11 @@
             .catch( error => {
                 console.error( error );
             } );
+    </script>
+    <script>
+        mobiscroll.select('#multiple-select', {
+            inputElement: document.getElementById('my-input'),
+            touchUi: false
+        });
     </script>
 @endsection

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Categories;
 use App\Models\publishers;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -35,7 +36,8 @@ class ProductController extends Controller
 
     function viewCreateProduct(){
         $publishers = publishers::all();
-        return view('admin/product/create', ['publishers'=>$publishers]);
+        $categories = Categories::all();
+        return view('admin/product/create', ['publishers'=>$publishers],['categories'=>$categories] );
 
     }
 
@@ -47,7 +49,7 @@ class ProductController extends Controller
         $product->image = 'image/'.$imageName;
         $product->nameProduct = $request->get('tenSach');
         $product->author = $request->get('tenTacGia');
-        $product->category = $request->get('theLoai');
+        $product->id_categories = $request->get('theLoai');
         $product->quantity = $request->get('soLuong');
         $product->price = $request->get('gia');
         $product->ISBN = $request->get('maISBN');
