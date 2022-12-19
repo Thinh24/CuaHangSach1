@@ -2,7 +2,7 @@
     margin: 0;
     padding: 0;
     font-family: 'Roboto', sans-serif;
-    
+
 }
 
 /* css cho navbar  */
@@ -18,7 +18,7 @@ body,html{
 
 .navbar input.form-control {
     border: 2px solid #CF111A!important;
-    
+
 }
 
 li.nav-item a{
@@ -169,7 +169,7 @@ ul.tabs li.active hr {
 .form-signin {
     width: 100%;
   }
-  
+
 .form-signin .btn {
     font-size: 80%;
     letter-spacing: .1rem;
@@ -177,7 +177,7 @@ ul.tabs li.active hr {
     padding: 1rem;
     transition: all 0.2s;
 }
-  
+
 .form-label-group {
     position: relative;
     margin-bottom: 1rem;
@@ -187,7 +187,7 @@ ul.tabs li.active hr {
     color: white;
     background-color: #ea4335;
 }
-  
+
 .btn-facebook {
     color: white;
     background-color: #3b5998;
@@ -217,7 +217,7 @@ label.error {
     display: inline-block;
     color:red;
     width: 300px;
-    
+
     margin-top:5px;
     margin-bottom: 0;
     font-size: 13px;
@@ -413,7 +413,7 @@ a.btn.btn-warning.btn-sm.text-white {
     width: 77px;
     background: #F5A623;
     font-size: 11px;
-} 
+}
 /* het css cho nut xem tat ca  */
 
 .card:hover .anh {
@@ -422,6 +422,7 @@ a.btn.btn-warning.btn-sm.text-white {
 
 img.card-img-top.anh {
     position: relative;
+    width: 80%;
     top: 15px;
     transition: 0.3s;
 }

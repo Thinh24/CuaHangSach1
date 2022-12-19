@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\web;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +14,9 @@ class WebController extends Controller
 
     // GET: localhost/home
     function viewHome(){
-        return view('web.home');
+        $products = Product::all();
+//        dd($products);
+        return view('web.home',['products' => $products]);
     }
 
     // GET: localhost/login
