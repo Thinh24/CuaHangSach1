@@ -53,7 +53,6 @@ class ProductController extends Controller
             $product->author = $request->get('tenTacGia');
             $product->quantity = $request->get('soLuong');
             $product->price = $request->get('gia');
-//            $product->id_categories = $request->get('theLoai');
             $product->ISBN = $request->get('maISBN');
             $product->id_publishers = $request->get('nhaXuatBan');
             $product->des = $request->get('description');
