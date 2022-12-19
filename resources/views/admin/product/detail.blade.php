@@ -29,9 +29,8 @@
                 <td>
                     {{$products -> author}}
                 </td>
-                <td><img width="150px" src="{{asset( $products->image)}}"></td>
                 <td>
-                    {{$products -> category}}
+                    <img width="150px" src="{{asset( $products->image)}}">
                 </td>
                 <td>
                     {{$products -> quantity}}

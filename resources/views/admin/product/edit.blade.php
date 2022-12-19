@@ -17,10 +17,12 @@
                     <label>Tên tác giả</label>
                     <input value=" {{ $product->author }}" name="tenTacGia" type="text" placeholder="Nhập tên tác giả" required>
                 </div>
-                <div class="col">
-                    <label>Thể loại</label>
-                    <input value=" {{ $product->category }}" name="theLoai" type="text" placeholder="Thể loại" required>
-                </div>
+
+{{--                <div class="col">--}}
+{{--                    <label>Thể loại</label>--}}
+{{--                    <input value=" {{ $product->category }}" name="theLoai" type="text" placeholder="Thể loại" required>--}}
+{{--                </div>--}}
+
                 <div class="col">
                     <label>Giá</label>
                     <br>

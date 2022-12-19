@@ -1,3 +1,6 @@
+<div id="fb-root"></div>
+<script async defer crossorigin="anonymous"
+        src="https://connect.facebook.net/vi_VN/sdk.js#xfbml=1&version=v6.0"></script>
 <title>Dealbook-Mua sách trực tuyến giá rẻ nhất</title>
 <meta name="description"
       content="Mua sách online hay, giá tốt nhất, combo sách hot bán chạy, giảm giá cực khủng cùng với những ưu đãi như miễn phí giao hàng, quà tặng miễn phí, đổi trả nhanh chóng. Đa dạng sản phẩm, đáp ứng mọi nhu cầu.">
@@ -32,3 +35,4 @@
 <link rel="icon" type="image/png" sizes="16x16" href="tem/favicon_io/favicon-16x16.png">
 <link rel="manifest" href="tem/favicon_io/site.webmanifest">
 <style>img[alt="www.000webhost.com"]{display: none;}</style>
+

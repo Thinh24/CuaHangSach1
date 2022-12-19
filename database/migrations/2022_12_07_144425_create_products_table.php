@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('image',1000);
             $table->string('quantity');
             $table->foreignId('id_publishers')->constrained('publishers');
-            $table->string('category');
             $table->string('price');
             $table->string('ISBN');
             $table->text('des');

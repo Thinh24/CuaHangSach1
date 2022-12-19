@@ -14,7 +14,6 @@
             <th>Tên Sách</th>
             <th>Tác Giả</th>
             <th>NXB</th>
-            <th>Thể Loại</th>
             <th>Số Lượng</th>
             <th>Giá Sản Phẩm</th>
             <th>Mã ISBN</th>
@@ -36,9 +35,9 @@
                 <td>
                     {{$product -> id_publishers}}
                 </td>
-                <td>
-                    {{$product -> category}}
-                </td>
+{{--                <td>--}}
+{{--                    {{$product -> category}}--}}
+{{--                </td>--}}
                 <td>
                     {{$product -> quantity}}
                 </td>

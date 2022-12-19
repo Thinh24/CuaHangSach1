@@ -10,55 +10,44 @@
             <div class="row">
                 <div class="col">
                     <label>Tên Sách</label>
+                    <br>
                     <input name="tenSach" type="text" placeholder="Nhập tên sản phẩm" required>
                 </div>
                 <div class="col">
                     <label>Tên tác giả</label>
+                    <br>
                     <input name="tenTacGia" type="text" placeholder="Nhập tên tác giả" required>
                 </div>
                 <div class="col">
-{{--                    <label>Thể loại</label>--}}
-{{--                    <br>--}}
-{{--                    <select name="theLoai" class="form-control" class="select" multiple >--}}
-{{--                        @forelse($categories as $category)--}}
-{{--                            <option value="{{$category->id}}">{{$category->nameCategory}}</option>--}}
-{{--                        @empty--}}
-{{--                            <option>Không có thể loại nào</option>--}}
-{{--                        @endforelse--}}
-{{--                    </select>--}}
-
-                    <label>
-                        Thể loại
-                        <input mbsc-input id="theLoai" data-dropdown="true" data-tags="true" />
-                    </label>
-                    <select id="multiple-select" multiple>
-                        @forelse($categories as $category)
-                            <option value="{{$category->id}}">{{$category->nameCategory}}</option>
-                        @empty
-                            <option>Không có thể loại nào</option>
-                        @endforelse
-                    </select>
+                    <label>Thể loại</label>
+                    <br>
+                        <select name="theLoai[]" class="select form-control" id="lang" multiple>
+                            @foreach( $categories as $category)
+                                <option value="{{$category->id}}">{{$category->nameCategory}}</option>
+                            @endforeach
+                        </select>
                 </div>
+            </div>
+            <div class="row">
                 <div class="col">
                     <label>Giá</label>
                     <br>
                     <input name="gia" type="number" placeholder="Giá" required min="0">
                 </div>
                 <div class="col">
-                    <br>
                     <label>Mã ISBN</label>
                     <br>
                     <input name="maISBN" type="number" placeholder="Mã ISBN" required>
                 </div>
                 <div class="col">
-                    <br>
+
                     <label>Số Lượng</label>
                     <br>
                     <input name="soLuong" type="number" placeholder="Số Lượng" required>
                 </div>
 
                 <div class="col">
-                    <br>
+
                     <label>Nhà Xuất Bản</label>
                     <br>
                     <select name="nhaXuatBan" class="form-control" >
@@ -105,10 +94,5 @@
                 console.error( error );
             } );
     </script>
-    <script>
-        mobiscroll.select('#multiple-select', {
-            inputElement: document.getElementById('my-input'),
-            touchUi: false
-        });
-    </script>
+
 @endsection
