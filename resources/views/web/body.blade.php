@@ -15,7 +15,7 @@
 {{--                    {{dd($product) }}--}}
 
                 <div class="card">
-                    <a href="" class="motsanpham"
+                    <a href="{{ url('/home/'.$product->id) }}" class="motsanpham"
                        style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom"
                        title="">
                         <img class="card-img-top anh" src="{{asset( $product -> image  )}}">

@@ -36,8 +36,8 @@ Route::post('/logout',[WebController::class,'logout']);
 
 Route::get('admin/home',[AdminController::class,'viewHome']);
 
-
-
+// Xem Product Detail
+Route::get('/home/{id}',[WebController::class,'viewProductDetail']);
 
 
 // Products
