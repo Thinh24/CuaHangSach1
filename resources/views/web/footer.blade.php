@@ -22,18 +22,20 @@
         <div class="col-md-3 col-xs-6">
             <div class="lienket">
                 <h3 class="header text-uppercase font-weight-bold">HỢP TÁC VÀ LIÊN KẾT</h3>
-                <img src="tem/images/dang-ky-bo-cong-thuong.png" alt="dang-ky-bo-cong-thuong">
+                <img src="{{asset('tem/images/dang-ky-bo-cong-thuong.png')}}" alt="dang-ky-bo-cong-thuong">
             </div>
         </div>
         <div class="col-md-3 col-xs-6">
             <div class="ptthanhtoan">
                 <h3 class="header text-uppercase font-weight-bold">Phương thức thanh toán</h3>
-                <img src="tem/images/visa-payment.jpg" alt="visa-payment">
-                <img src="tem/images/master-card-payment.jpg" alt="master-card-payment">
-                <img src="tem/images/jcb-payment.jpg" alt="jcb-payment">
-                <img src="tem/images/atm-payment.jpg" alt="atm-payment">
-                <img src="tem/images/cod-payment.jpg" alt="cod-payment">
-                <img src="tem/images/payoo-payment.jpg" alt="payoo-payment">
+                <img src="{{asset('tem/images/visa-payment.jpg')}}" alt="visa-payment">
+                <img src="{{asset('tem/images/master-card-payment.jpg')}}" alt="master-card-payment">
+                <img src="{{asset('tem/images/jcb-payment.jpg')}}" alt="jcb-payment">
+                <img src="{{asset('tem/images/atm-payment.jpg')}}" alt="atm-payment">
+                <img src="{{asset('tem/images/cod-payment.jpg')}}" alt="cod-payment">
+                <img src="{{asset('tem/images/payoo-payment.jpg')}}" alt="payoo-payment">
+
+
             </div>
         </div>
     </div>

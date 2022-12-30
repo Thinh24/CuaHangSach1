@@ -1,11 +1,17 @@
 <!DOCTYPE html>
+<html lang="vi">
 
 <head>
     @include('web.head')
 </head>
 
 <body>
-{{--@include('web.header')--}}
+<!-- header -->
+@include('web.header')
+<!-- header -->
+<!-- body -->
+<br>
+<br>
 <section class="product-page mb-4">
     <div class="container">
         <!-- chi tiết 1 sản phẩm -->
@@ -200,7 +206,14 @@
         <!-- het product-detail -->
     </div>
     <!-- het container  -->
-
-    @include('web.footer')
-</body>
 </section>
+<br>
+<br>
+<!-- body -->
+<!-- footer  -->
+@include('web.footer')
+<!-- footer  -->
+</body>
+
+</html>
+
