@@ -31,7 +31,7 @@ class WebController extends Controller
 
         $rs = Auth::attempt(['email'=>$email,'password'=>$password]);
         if($rs == false){
-            return redirect()->back();
+            return redirect('/home');
         }
         else{
             // DDăng nhập thành công

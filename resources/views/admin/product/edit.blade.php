@@ -11,39 +11,35 @@
             <div class="row">
                 <div class="col">
                     <label>Tên Sách</label>
+                    <br>
                     <input value=" {{ $product->nameProduct }}" name="tenSach" type="text" placeholder="Nhập tên sản phẩm" required>
                 </div>
                 <div class="col">
                     <label>Tên tác giả</label>
+                    <br>
                     <input value=" {{ $product->author }}" name="tenTacGia" type="text" placeholder="Nhập tên tác giả" required>
                 </div>
-
-{{--                <div class="col">--}}
-{{--                    <label>Thể loại</label>--}}
-{{--                    <input value=" {{ $product->category }}" name="theLoai" type="text" placeholder="Thể loại" required>--}}
-{{--                </div>--}}
 
                 <div class="col">
                     <label>Giá</label>
                     <br>
                     <input value=" {{ $product->price}}" name="gia" type="text" placeholder="Giá" required min="0">
                 </div>
+            </div>
+            <div class="row">
                 <div class="col">
-                    <br>
                     <label>Mã ISBN</label>
                     <br>
                     <input value=" {{ $product->ISBN }}" name="maISBN" type="text" placeholder="Mã ISBN" required>
                 </div>
 
                 <div class="col">
-                    <br>
                     <label>Số Lượng</label>
                     <br>
                     <input value="{{$product->quantity }}" name="soLuong" type="text" placeholder="Số Lượng" required>
                 </div>
 
                 <div class="col">
-                    <br>
                     <label>Nhà Xuất Bản</label>
                     <br>
                         <select name="nhaXuatBan" class="form-control" >
@@ -55,13 +51,17 @@
                         </select>
                     </select>
                 </div>
-
+            </div>
 
             </div>
             <div class="rol">
                 <div class="col">
                     <br>
-                    <input value=" {{ $product->image }}" name="image" type="file" class="form-control-file">
+                    <a href="{{asset($product -> image)}}">
+                        <img width="400 px" src="{{asset( $product -> image )}}">
+                    </a>
+                    <input value=" {{ $product->image }}" name="image" type="text" class="form-control-file">
+{{--                    <img width="400 px" src="{{asset( $product -> image  )}}">--}}
                 </div>
             </div>
             <div class="rol">

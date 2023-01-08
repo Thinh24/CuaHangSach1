@@ -63,8 +63,8 @@ return [
     |
     */
 
-    'logo' => '<b>my</b>SHOP',
-//        'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo' => '<b>DealBook</b>',
+        'logo_img' => 'tem/favicon_io/android-chrome-512x512.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -109,7 +109,7 @@ return [
     'preloader' => [
         'enabled' => true,
         'img' => [
-            'path' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+            'path' => 'tem/favicon_io/android-chrome-512x512.png',
             'alt' => 'AdminLTE Preloader Image',
             'effect' => 'animation__shake',
             'width' => 60,

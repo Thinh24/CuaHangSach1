@@ -43,21 +43,20 @@ class ProductController extends Controller
     }
 
     function createProduct(Request $request){
-            $imageName = time().".".$request->file('image')->extension();
-            $request->file('image')->move(public_path('image'),$imageName);
+        $imageName = time().".".$request->file('image')->extension();
+        $request->file('image')->move(public_path('image'),$imageName);
 
-
-            $product = new Product();
-            $product->image = 'image/'.$imageName;
-            $product->nameProduct = $request->get('tenSach');
-            $product->author = $request->get('tenTacGia');
-            $product->quantity = $request->get('soLuong');
-            $product->price = $request->get('gia');
-            $product->ISBN = $request->get('maISBN');
-            $product->id_publishers = $request->get('nhaXuatBan');
-            $product->des = $request->get('description');
-            $product->save();
-            $product_id =  $product->id;
+        $product = new Product();
+        $product->image = 'image/'.$imageName;
+        $product->nameProduct = $request->get('tenSach');
+        $product->author = $request->get('tenTacGia');
+        $product->quantity = $request->get('soLuong');
+        $product->price = $request->get('gia');
+        $product->ISBN = $request->get('maISBN');
+        $product->id_publishers = $request->get('nhaXuatBan');
+        $product->des = $request->get('description');
+        $product->save();
+        $product_id =  $product->id;
 
         $categoriesIds = $request ->get('theLoai');
 
@@ -82,13 +81,9 @@ class ProductController extends Controller
         $imageName = time().".".$request->file('image')->extension();
         $request->file('image')->move(public_path('image'),$imageName);
 
-//        $product = new Product();
         $product->image = 'image/'.$imageName;
         $product->nameProduct = $request->get('tenSach');
         $product->author = $request->get('tenTacGia');
-
-//        $product->category = $request->get('theLoai');
-
         $product->quantity = $request->get('soLuong');
         $product->price = $request->get('gia');
         $product->ISBN = $request->get('maISBN');
@@ -96,9 +91,22 @@ class ProductController extends Controller
         $product->des = $request->get('description');
 
 
+//        if($_FILES['image'] != null){
+//            if($_FILES['image']['error'] >0){
+//                echo "file bị lỗi";
+//                die;
+//            }else{
+//                $product = $imageName['image']['tenSach'];
+//                $imageName = $_FILES['image']['image'];
+//                $target_file = 'upload/'.$imageName;
+//                move_uploaded_file($product,$target_file);
+//            }}
+//        else {
+//            $product->image = 'image/'.$imageName;
+//        }
+
         DB::table('products')->where('id',$id)->update(
             ['nameProduct'=>$product->nameProduct, 'author'=>$product->author,'image'=>$product->image,
-//                'category'=> $product->category ,
                 'quantity'=>$product->quantity,'price'=>$product->price,'ISBN'=> $product->ISBN,
                 'id_publishers'=> $product->id_publishers,'des'=>  $product->des]
         );

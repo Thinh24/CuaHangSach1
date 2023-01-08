@@ -1,5 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
 @extends('layout.base')
-
 @section('title','Thêm Sản Phẩm')
 @section('content')
 <br>
@@ -62,8 +71,34 @@
             </div>
             <div class="rol">
                 <div class="col">
-                    <br>
-                    <input name="image" type="file" class="form-control-file">
+                    <div class="container imageUploadContainer">
+                        <div>
+                            <img
+                                src=""
+                                alt=""
+                                id="imagePreview" width="400px">
+                        </div>
+                        <div class="imageUpload">
+                            <input type="file" name="image" id="imageUploadInput" accept=".jpg,.png">
+                        </div>
+                        <div id="uploadFileStatus"></div>
+                        <div class="fileInfomation">
+                            <p>
+                                Tên file:
+                                <span id="fileInfomation_name">----</span>
+                            </p>
+                            <p>
+                                Định dạng:
+                                <span id="fileInfomation_type">----</span>
+                            </p>
+                            <p>
+                                Dung lượng:
+                                <span id="fileInfomation_size">----</span>
+                            </p>
+                        </div>
+                    </div>
+
+
                 </div>
             </div>
             <div class="rol">
@@ -96,3 +131,7 @@
     </script>
 
 @endsection
+<script src="{{asset('tem/js/index.js')}}" type="text/javascript"></script>
+</body>
+
+</html>
