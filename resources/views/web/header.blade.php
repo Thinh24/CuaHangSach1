@@ -49,11 +49,11 @@
 {{--                </div>--}}
 
                 <li class="nav-item giohang">
-                    <a href="gio-hang.html" class="btn btn-secondary rounded-circle">
+                    <a href="{{ url('/cart') }}" class="btn btn-secondary rounded-circle">
                         <i class="fa fa-shopping-cart"></i>
                         <div class="cart-amount">0</div>
                     </a>
-                    <a class="nav-link text-dark giohang text-uppercase" href="gio-hang.html"
+                    <a class="nav-link text-dark giohang text-uppercase" href="{{ url('/cart') }}"
                        style="display:inline-block">Giỏ
                         Hàng</a>
                 </li>

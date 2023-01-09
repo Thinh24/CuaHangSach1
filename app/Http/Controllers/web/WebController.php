@@ -75,4 +75,9 @@ class WebController extends Controller
         $products = Product::find($id);
         return view('web.detailProduct', ['products'=> $products]);
     }
+
+    function viewCart(){
+        $products = Product::all();
+        return view('web.gioHang',['products' => $products]);
+    }
 }

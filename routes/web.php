@@ -41,7 +41,8 @@ Route::get('admin/home',[AdminController::class,'viewHome']);
 
 // Xem Product Detail
 Route::get('/home/{id}',[WebController::class,'viewProductDetail']);
-
+// Xem gio hang
+Route::get('/cart',[WebController::class,'viewCart']);
 
 // Products
 // Tạo

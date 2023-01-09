@@ -67,6 +67,7 @@ class ProductController extends Controller
             $categoryDetails->save();
         }
 
+
         return redirect('/admin/products');
     }
 
@@ -76,11 +77,15 @@ class ProductController extends Controller
         return view('admin/product/edit', ['product'=>$product],['publishers'=>$publishers]);
     }
     function updateProductById(Request $request, $id){
-        $product = DB::table('products')->find($id);
-        $imageName = time().".".$request->file('image')->extension();
-        $request->file('image')->move(public_path('image'),$imageName);
+        $product = Product::find($id);
+        // Ten anh cu
+        // Xem anh gui len co hop le hay ko?
+        if ($request->file('image') != null && $request->file('image')->isValid()) {
+            $imageName = time() . "." . $request->file('image')->extension();
+            $request->file('image')->move(public_path('image'), $imageName);
+            $product->image = 'image/'.$imageName;
+        }
 
-        $product->image = 'image/'.$imageName;
         $product->nameProduct = $request->get('tenSach');
         $product->author = $request->get('tenTacGia');
         $product->quantity = $request->get('soLuong');
@@ -89,29 +94,15 @@ class ProductController extends Controller
         $product->id_publishers = $request->get('nhaXuatBan');
         $product->des = $request->get('description');
 
+        $product->save();
 
-//        if($_FILES['image'] != null){
-//            if($_FILES['image']['error'] >0){
-//                echo "file bị lỗi";
-//                die;
-//            }else{
-//                $product = $imageName['image']['tenSach'];
-//                $imageName = $_FILES['image']['image'];
-//                $target_file = 'upload/'.$imageName;
-//                move_uploaded_file($product,$target_file);
-//            }}
-//        else {
-//            $product->image = 'image/'.$imageName;
-//        }
-
-        DB::table('products')->where('id',$id)->update(
-            ['nameProduct'=>$product->nameProduct, 'author'=>$product->author,'image'=>$product->image,
-                'quantity'=>$product->quantity,'price'=>$product->price,'ISBN'=> $product->ISBN,
-                'id_publishers'=> $product->id_publishers,'des'=>  $product->des]
-        );
+//        DB::table('products')->where('id',$id)->update(
+//            ['nameProduct'=>$product->nameProduct, 'author'=>$product->author,'image'=>$product->image,
+//                'quantity'=>$product->quantity,'price'=>$product->price,'ISBN'=> $product->ISBN,
+//                'id_publishers'=> $product->id_publishers,'des'=>  $product->des]
+//        );
         return redirect('admin/products');
     }
-
     function deleteProductById($id){
         Product::destroy($id);
         return redirect() ->back();
