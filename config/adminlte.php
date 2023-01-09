@@ -339,6 +339,11 @@ return [
             'icon' => 'fas fa-fw fa-user text-danger',
         ],
         [
+            'text' => 'Quản lý kho',
+            'url' => 'admin/warehouses',
+            'icon' => 'fas fa-fw fa-user text-danger',
+        ],
+        [
             'text' => 'Đổi mật khẩu',
             'url' => 'admin/changepw',
             'icon' => 'fas fa-key',

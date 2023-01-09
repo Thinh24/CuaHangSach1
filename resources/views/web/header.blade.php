@@ -388,11 +388,11 @@
                                              style="height: 386px;" width="900px" alt="First slide"></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="#"><img src="{{asset('tem/images/banner-beethoven.jpg')}} class="img-fluid"
+                            <a href="#"><img src="{{asset('tem/images/banner-beethoven.jpg')}}" class="img-fluid"
                                              style="height: 386px;" width="900px" alt="Second slide"></a>
                         </div>
                         <div class="carousel-item">
-                            <a href="#"><img src="{{asset('tem/images/neu-toi-biet-duoc-khi-20-full-banner.jpg')}} class="img-fluid"
+                            <a href="#"><img src="{{asset('tem/images/neu-toi-biet-duoc-khi-20-full-banner.jpg')}}" class="img-fluid"
                                              style="height: 386px;" alt="Third slide"></a>
                         </div>
                     </div>

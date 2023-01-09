@@ -67,7 +67,6 @@ class ProductController extends Controller
             $categoryDetails->save();
         }
 
-
         return redirect('/admin/products');
     }
 

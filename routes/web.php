@@ -2,6 +2,9 @@
 
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ProductController;
+use App\Http\Controllers\admin\PublishersController;
+use App\Http\Controllers\admin\UserController;
+use App\Http\Controllers\admin\WarehouseController;
 use App\Http\Controllers\web\WebController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,25 +58,29 @@ Route::put('/admin/products/{id}/edit',[ProductController::class,'updateProductB
 // Xóa
 Route::delete('/admin/products/{id}',[ProductController::class,'deleteProductById']);
 
+// Warehose
+//Xem
+Route::get('/admin/warehouses',[WarehouseController::class,'viewWarehouse']);
+Route::get('/admin/warehouses/{id}',[WarehouseController::class,'viewWarehouseById']);
 // Nxb
 // Tạo
-Route::get('/admin/publishers/create', [\App\Http\Controllers\admin\PublishersController::class,'viewCreateNhaXuatBan']);
-Route::post('/admin/publishers/create', [\App\Http\Controllers\admin\PublishersController::class,'createNhaXuatBan']);
+Route::get('/admin/publishers/create', [PublishersController::class,'viewCreateNhaXuatBan']);
+Route::post('/admin/publishers/create', [PublishersController::class,'createNhaXuatBan']);
 // Xem
-Route::get('/admin/publishers',[\App\Http\Controllers\admin\PublishersController::class,'viewAllNhaXuatBan']);
+Route::get('/admin/publishers',[PublishersController::class,'viewAllNhaXuatBan']);
 // Sửa
 // admin sửa
-Route::get('/admin/publishers/{id}/edit',[\App\Http\Controllers\admin\PublishersController::class,'editNhaXuatBanById']);
+Route::get('/admin/publishers/{id}/edit',[PublishersController::class,'editNhaXuatBanById']);
 // custom sửa
-Route::put('/admin/publishers/{id}/edit',[\App\Http\Controllers\admin\PublishersController::class,'updateNhaXuatBanById']);
+Route::put('/admin/publishers/{id}/edit',[PublishersController::class,'updateNhaXuatBanById']);
 // Xóa
-Route::delete('/admin/publishers/{id}',[\App\Http\Controllers\admin\PublishersController::class,'deleteNhaXuatBanById']);
+Route::delete('/admin/publishers/{id}',[PublishersController::class,'deleteNhaXuatBanById']);
 
 
 
-Route::get('/admin/users',[\App\Http\Controllers\admin\UserController::class,'viewAllUser']);
-Route::get('/admin/users/{id}',[\App\Http\Controllers\admin\UserController::class,'viewUserById']);
+Route::get('/admin/users',[UserController::class,'viewAllUser']);
+Route::get('/admin/users/{id}',[UserController::class,'viewUserById']);
 // Sửa
-Route::put('/admin/users/{id}/edit',[\App\Http\Controllers\admin\UserController::class,'editUserById']);
+Route::put('/admin/users/{id}/edit',[UserController::class,'editUserById']);
 // Xóa
-Route::delete('/admin/users/{id}',[\App\Http\Controllers\admin\UserController::class,'deleteUserById']);
+Route::delete('/admin/users/{id}',[UserController::class,'deleteUserById']);
