@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-
-
-<head>
-    @include('web.head')
-</head>
-
-<body>
-@include('web.header')
 <section class="product-page mb-4">
     <div class="container">
         <!-- chi tiết 1 sản phẩm -->
@@ -15,7 +6,7 @@
                 <!-- ảnh  -->
                 <div class="col-md-5 khoianh">
                     <div class="anhto mb-4">
-                        <a class="active" href="images/Screenshot 2.png" data-fancybox="thumb-img">
+                        <a class="active" href="{{asset('images/Screenshot 2.png')}}" data-fancybox="thumb-img">
                             <img class="product-image" src="{{asset( $products->image)}}" alt="" style="width: 100%;">
                         </a>
                         <a href="" data-fancybox="thumb-img"></a>
@@ -37,9 +28,9 @@
                         </div>
                         <div class="col-md-7">
                             <div class="gia">
-                                <div class="giabia">Giá bìa:<span class="giacu ml-2">  {{$products -> price}}{{(" VND")}}</span></div>
+                                <div class="giabia">Giá bìa:<span class="giacu ml-2">  {{$products -> price}}</span></div>
                                 <div class="giaban">Giá bán tại Kim đồng: <span
-                                        class="giamoi font-weight-bold">  {{$products -> price}}{{(" VND")}}</span><span class="donvitien">₫</span></div>
+                                        class="giamoi font-weight-bold">  {{$products -> price}}</span><span class="donvitien">₫</span></div>
                                 <div class="tietkiem">Tiết kiệm: <b>5.000 ₫</b> <span class="sale">-20%</span>
                                 </div>
                             </div>
@@ -201,7 +192,4 @@
         <!-- het product-detail -->
     </div>
     <!-- het container  -->
-
-    @include('web.footer')
-</body>
 </section>

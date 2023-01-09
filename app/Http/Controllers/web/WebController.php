@@ -73,7 +73,7 @@ class WebController extends Controller
     }
     function viewProductDetail($id){
         $products = Product::find($id);
-        return view('web.detailProduct', ['products'=> $products]);
+        return view('web.detail.detailProduct', ['products'=> $products]);
     }
 
     function viewCart(){
