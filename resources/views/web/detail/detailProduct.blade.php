@@ -3,7 +3,7 @@
 
 <head>
     @include('web.detail.headDetail')
-    @include('web.head')
+
 
 </head>
 

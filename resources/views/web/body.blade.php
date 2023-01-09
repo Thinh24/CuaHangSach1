@@ -16,7 +16,7 @@
                     <a href="{{ url('/home/'.$product->id) }}" class="motsanpham"
                        style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom"
                        title="">
-                        <img class="card-img-top anh" src="{{asset( $product -> image  )}}">
+                        <img class="card-img-top anh" src="{{asset( $product -> image )}}">
                         <div class="card-body noidungsp mt-2">
                             <h3 class="card-title ten">{{$product->nameProduct}}</h3>
                             <small class="tacgia text-muted">{{$product->author}}</small>
