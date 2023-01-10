@@ -17,19 +17,19 @@
                 <th>Price</th>
             </tr>
             <tr>
-                <td>{{$warehouses->id }}</td>
+{{--                <td>{{$warehouse_details->id }}</td>--}}
                 <td>
                     {{$warehouses -> id_Warehouse}}
                 </td>
                 <td>
                     {{$warehouses -> id_products}}
                 </td>
-                <td>
-                    {{$products -> quantity}}
-                </td>
-                <td>
-                    {{$products -> price}}{{(" VND")}}
-                </td>
+{{--                <td>--}}
+{{--                    {{$warehouse_details -> quantity}}--}}
+{{--                </td>--}}
+{{--                <td>--}}
+{{--                    {{$warehouse_details -> price}}{{(" VND")}}--}}
+{{--                </td>--}}
             </tr>
         </table>
         <div class="row">

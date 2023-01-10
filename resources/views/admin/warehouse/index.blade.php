@@ -27,7 +27,7 @@
                     {{$warehouse -> id_storage}}
                 </td>
                 <td>
-                    <a href="{{ url('admin/warehouse/'.$warehouse->id.'/detail' )}} " class="btn btn-success">Chi tiết</a>
+                    <a href="{{ url('admin/warehouses/'.$warehouse->id )}} " class="btn btn-success">Chi tiết</a>
                     @csrf
                     @method('')
                     <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/warehouse/'.$warehouse->id)}}">

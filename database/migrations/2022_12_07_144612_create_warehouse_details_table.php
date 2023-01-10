@@ -17,8 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignId('id_warehouses')->constrained('warehouses');
             $table->foreignId('id_products')->constrained('products');
-            $table->integer('quantity');
-            $table->integer('price');
+            $table->integer('quantity')->nullable();
+            $table->integer('price')->nullable();
             $table->timestamps();
         });
     }

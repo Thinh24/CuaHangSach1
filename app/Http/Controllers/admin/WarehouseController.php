@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\Warehouse;
+use App\Models\WarehouseDetail;
 use Illuminate\Http\Request;
 
 class WarehouseController extends Controller

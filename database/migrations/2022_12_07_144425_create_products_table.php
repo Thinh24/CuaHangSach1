@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('nameProduct');
             $table->string('author');
             $table->string('image',1000);
-            $table->string('quantity');
+            $table->string('quantity')->nullable();
             $table->foreignId('id_publishers')->constrained('publishers');
             $table->string('price');
             $table->string('ISBN');
