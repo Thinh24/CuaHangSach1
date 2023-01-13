@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
-use App\Models\Suppliers;
+use App\Models\suppliers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -43,7 +43,7 @@ class SuppliersController extends Controller
     }
 
     function editNhaCungCapById($id){
-        $suppliers = DB::table('$suppliers')->find($id);
+        $suppliers = DB::table('suppliers')->find($id);
         return view('admin/supplier/edit', ['suppliers'=>$suppliers]);
     }
     function updateNhaCungCapById(Request $request, $id){
