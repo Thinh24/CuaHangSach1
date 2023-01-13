@@ -3,6 +3,7 @@
 use App\Http\Controllers\admin\AdminController;
 use App\Http\Controllers\admin\ProductController;
 use App\Http\Controllers\admin\PublishersController;
+use App\Http\Controllers\admin\SuppliersController;
 use App\Http\Controllers\admin\UserController;
 use App\Http\Controllers\admin\WarehouseController;
 use App\Http\Controllers\web\WebController;
@@ -76,6 +77,20 @@ Route::get('/admin/publishers/{id}/edit',[PublishersController::class,'editNhaXu
 Route::put('/admin/publishers/{id}/edit',[PublishersController::class,'updateNhaXuatBanById']);
 // Xóa
 Route::delete('/admin/publishers/{id}',[PublishersController::class,'deleteNhaXuatBanById']);
+
+// Nha Cung Cap
+// Tạo
+Route::get('/admin/supplier/create', [SuppliersController::class,'viewCreateNhaCungCap']);
+Route::post('/admin/supplier/create', [SuppliersController::class,'createNhaCungCap']);
+// Xem
+Route::get('/admin/supplier',[SuppliersController::class,'viewAllNhaCungCap']);
+// Sửa
+// admin sửa
+Route::get('/admin/supplier/{id}/edit',[SuppliersController::class,'editNhaCungCapById']);
+// custom sửa
+Route::put('/admin/supplier/{id}/edit',[SuppliersController::class,'updateNhaCungCapById']);
+// Xóa
+Route::delete('/admin/supplier/{id}',[SuppliersController::class,'deleteNhaCungCapById']);
 
 
 

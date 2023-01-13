@@ -324,6 +324,11 @@ return [
             'icon' => 'fas fa-home text-success',
         ],
         [
+            'text' => 'Quản Lý Nhà Cung Cấp ',
+            'url' => 'admin/supplier',
+            'icon' => 'fas fa-home text-success',
+        ],
+        [
             'text' => 'Quản Lý Sách ',
             'url' => 'admin/products',
             'icon' => 'fas fa-home text-success',
