@@ -19,6 +19,7 @@ class ProductController extends Controller
     }
 
     function viewAllProducts(Request $request){
+        $publishers = publishers::all(['id','namePublishers']);
         $kw = $request->get('kw','');
         if(empty($kw)){
             $products = Product::paginate(5);
@@ -28,7 +29,7 @@ class ProductController extends Controller
                 ->orWhere('tenSanPham','LIKE','%'.$kw.'%')
                 ->paginate(5);
         }
-        return view('admin/product/index', ['products' => $products]);
+        return view('admin/product/index', ['products' => $products],['publishers'=>$publishers]);
     }
 
     function viewProductById($id){
@@ -46,6 +47,7 @@ class ProductController extends Controller
         $imageName = time().".".$request->file('image')->extension();
         $request->file('image')->move(public_path('image'),$imageName);
 
+//      Thêm thông tin sản phẩm mới
         $product = new Product();
         $product->image = 'image/'.$imageName;
         $product->nameProduct = $request->get('tenSach');
@@ -56,15 +58,18 @@ class ProductController extends Controller
         $product->id_publishers = $request->get('nhaXuatBan');
         $product->des = $request->get('description');
         $product->save();
+//      Lưu thônng tin vừa lưu
         $product_id =  $product->id;
-
+//      Lấy thông tin vừa lưu
         $categoriesIds = $request ->get('theLoai');
-
+//      Chọn lấy thông tin thể loại vừa thêm
         foreach ($categoriesIds as $categoryId){
             $categoryDetails  = new CategoryDetail();
+//      Tạo thêm mục mới cho bảng CategoryDetail
             $categoryDetails->id_category = $categoryId;
             $categoryDetails->id_products = $product_id;
             $categoryDetails->save();
+//      Lưu mục vừa thêm vào bảng CategoryDetail
         }
 
 
@@ -96,11 +101,6 @@ class ProductController extends Controller
 
         $product->save();
 
-//        DB::table('products')->where('id',$id)->update(
-//            ['nameProduct'=>$product->nameProduct, 'author'=>$product->author,'image'=>$product->image,
-//                'quantity'=>$product->quantity,'price'=>$product->price,'ISBN'=> $product->ISBN,
-//                'id_publishers'=> $product->id_publishers,'des'=>  $product->des]
-//        );
         return redirect('admin/products');
     }
     function deleteProductById($id){

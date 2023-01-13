@@ -77,7 +77,8 @@ class WebController extends Controller
     }
 
     function viewCart(){
-        $products = Product::all();
+        $products = Product::all(['id','nameProduct']);
+//        dd($products);
         return view('web.gioHang',['products' => $products]);
     }
 }

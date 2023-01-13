@@ -33,11 +33,15 @@
                     {{$product -> author}}
                 </td>
                 <td>
-                    {{$product -> id_publishers}}
+{{--                    {{$product -> id_publishers}}--}}{{--{{$publisher->namePublishers}}--}}
+{{--                    Lỗi hiển thị all--}}
+                    @forelse($publishers as $publisher)
+                        @if($product -> id_publishers == $publisher -> id ) {{$publisher->namePublishers}}  @endif
+                    @empty
+                    @endforelse
+
+
                 </td>
-{{--                <td>--}}
-{{--                    {{$product -> category}}--}}
-{{--                </td>--}}
                 <td>
                     {{$product -> quantity}}
                 </td>
