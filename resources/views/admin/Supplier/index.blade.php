@@ -24,7 +24,7 @@
                 <td>{{$supplier -> address}}<br>
                 <td>{{$supplier -> phone}}<br>
                 <td>
-                    <a href="{{ url('admin/supplier/'.$suppliers -> id.'/edit' )}} " class="btn btn-success">Sửa</a>
+                    <a href="{{ url('admin/supplier/'.$supplier -> id.'/edit' )}} " class="btn btn-success">Sửa</a>
                     @csrf
                     @method('')
                     <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/supplier/'.$supplier->id)}}">

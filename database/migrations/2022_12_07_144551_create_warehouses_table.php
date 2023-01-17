@@ -15,7 +15,6 @@ return new class extends Migration
     {
         Schema::create('warehouses', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
             $table->foreignId('id_users')->constrained('users');
             $table->foreignId('id_storage')->constrained('storage');
             $table->timestamps();

@@ -61,9 +61,15 @@ Route::put('/admin/products/{id}/edit',[ProductController::class,'updateProductB
 Route::delete('/admin/products/{id}',[ProductController::class,'deleteProductById']);
 
 // Warehose
+
+Route::get('/admin/warehouse/create', [WarehouseController::class,'viewCreateWarehouse']);
+Route::post('/admin/warehouse/create', [WarehouseController::class,'createWarehouse']);
 //Xem
 Route::get('/admin/warehouses',[WarehouseController::class,'viewWarehouse']);
 Route::get('/admin/warehouses/{id}',[WarehouseController::class,'viewWarehouseById']);
+
+
+
 // Nxb
 // Tạo
 Route::get('/admin/publishers/create', [PublishersController::class,'viewCreateNhaXuatBan']);
