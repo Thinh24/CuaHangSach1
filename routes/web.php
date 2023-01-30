@@ -25,78 +25,84 @@ Route::get('/', function () {
 });
 
 
-Route::get('/', [WebController::class,'viewHome']);
+Route::get('/', [WebController::class, 'viewHome']);
 
-Route::get('/home',[WebController::class,'viewHome']);
+Route::get('/home', [WebController::class, 'viewHome']);
 // Đăng ký
-Route::get('/register',[WebController::class,'viewRegister']);
-Route::post('/register',[WebController::class,'createRegister']);
+Route::get('/register', [WebController::class, 'viewRegister']);
+Route::post('/register', [WebController::class, 'createRegister']);
 // Đăng nhập
-Route::get('/login',[WebController::class,'viewLogin']);
-Route::post('/login',[WebController::class,'login']);
+Route::get('/login', [WebController::class, 'viewLogin']);
+Route::post('/login', [WebController::class, 'login']);
 // Đăng xuất
-Route::post('/logout',[WebController::class,'logout']);
+Route::post('/logout', [WebController::class, 'logout']);
 
 
-Route::get('admin/home',[AdminController::class,'viewHome']);
+Route::get('admin/home', [AdminController::class, 'viewHome']);
 
 // Xem Product Detail
-Route::get('/home/{id}',[WebController::class,'viewProductDetail']);
+Route::get('/home/{id}', [WebController::class, 'viewProductDetail']);
+//Them vao gio hang
+Route::get('/home/{id}/add-to-cart', [WebController::class, 'addToCart'])->name('addToCart');
 // Xem gio hang
-Route::get('/cart',[WebController::class,'viewCart']);
+Route::get('/cart', [WebController::class, 'viewCart']);
+//Cap nhat gio hang
+Route::get('/update-cart', [WebController::class, 'updateCart'])->name('updateCart');
+//Xoa Gio hang
+Route::get('/delete-cart', [WebController::class, 'deleteCart'])->name('deleteCart');
+
 
 // Products
 // Tạo
-Route::get('/admin/products/create', [ProductController::class,'viewCreateProduct']);
-Route::post('/admin/products/create', [ProductController::class,'createProduct']);
+Route::get('/admin/products/create', [ProductController::class, 'viewCreateProduct']);
+Route::post('/admin/products/create', [ProductController::class, 'createProduct']);
 // Xem
-Route::get('/admin/products',[ProductController::class,'viewAllProducts']);
-Route::get('/admin/products/{id}',[ProductController::class,'viewProductById']);
+Route::get('/admin/products', [ProductController::class, 'viewAllProducts']);
+Route::get('/admin/products/{id}', [ProductController::class, 'viewProductById']);
 // Sửa
 // admin sửa
-Route::get('/admin/products/{id}/edit',[ProductController::class,'editProductById']);
+Route::get('/admin/products/{id}/edit', [ProductController::class, 'editProductById']);
 //custom sửa
-Route::put('/admin/products/{id}/edit',[ProductController::class,'updateProductById']);
+Route::put('/admin/products/{id}/edit', [ProductController::class, 'updateProductById']);
 // Xóa
-Route::delete('/admin/products/{id}',[ProductController::class,'deleteProductById']);
+Route::delete('/admin/products/{id}', [ProductController::class, 'deleteProductById']);
 
 // Warehose
 //Xem
-Route::get('/admin/warehouses',[WarehouseController::class,'viewWarehouse']);
-Route::get('/admin/warehouses/{id}',[WarehouseController::class,'viewWarehouseById']);
+Route::get('/admin/warehouses', [WarehouseController::class, 'viewWarehouse']);
+Route::get('/admin/warehouses/{id}', [WarehouseController::class, 'viewWarehouseById']);
 // Nxb
 // Tạo
-Route::get('/admin/publishers/create', [PublishersController::class,'viewCreateNhaXuatBan']);
-Route::post('/admin/publishers/create', [PublishersController::class,'createNhaXuatBan']);
+Route::get('/admin/publishers/create', [PublishersController::class, 'viewCreateNhaXuatBan']);
+Route::post('/admin/publishers/create', [PublishersController::class, 'createNhaXuatBan']);
 // Xem
-Route::get('/admin/publishers',[PublishersController::class,'viewAllNhaXuatBan']);
+Route::get('/admin/publishers', [PublishersController::class, 'viewAllNhaXuatBan']);
 // Sửa
 // admin sửa
-Route::get('/admin/publishers/{id}/edit',[PublishersController::class,'editNhaXuatBanById']);
+Route::get('/admin/publishers/{id}/edit', [PublishersController::class, 'editNhaXuatBanById']);
 // custom sửa
-Route::put('/admin/publishers/{id}/edit',[PublishersController::class,'updateNhaXuatBanById']);
+Route::put('/admin/publishers/{id}/edit', [PublishersController::class, 'updateNhaXuatBanById']);
 // Xóa
-Route::delete('/admin/publishers/{id}',[PublishersController::class,'deleteNhaXuatBanById']);
+Route::delete('/admin/publishers/{id}', [PublishersController::class, 'deleteNhaXuatBanById']);
 
 // Nha Cung Cap
 // Tạo
-Route::get('/admin/supplier/create', [SuppliersController::class,'viewCreateNhaCungCap']);
-Route::post('/admin/supplier/create', [SuppliersController::class,'createNhaCungCap']);
+Route::get('/admin/supplier/create', [SuppliersController::class, 'viewCreateNhaCungCap']);
+Route::post('/admin/supplier/create', [SuppliersController::class, 'createNhaCungCap']);
 // Xem
-Route::get('/admin/supplier',[SuppliersController::class,'viewAllNhaCungCap']);
+Route::get('/admin/supplier', [SuppliersController::class, 'viewAllNhaCungCap']);
 // Sửa
 // admin sửa
-Route::get('/admin/supplier/{id}/edit',[SuppliersController::class,'editNhaCungCapById']);
+Route::get('/admin/supplier/{id}/edit', [SuppliersController::class, 'editNhaCungCapById']);
 // custom sửa
-Route::put('/admin/supplier/{id}/edit',[SuppliersController::class,'updateNhaCungCapById']);
+Route::put('/admin/supplier/{id}/edit', [SuppliersController::class, 'updateNhaCungCapById']);
 // Xóa
-Route::delete('/admin/supplier/{id}',[SuppliersController::class,'deleteNhaCungCapById']);
+Route::delete('/admin/supplier/{id}', [SuppliersController::class, 'deleteNhaCungCapById']);
 
 
-
-Route::get('/admin/users',[UserController::class,'viewAllUser']);
-Route::get('/admin/users/{id}',[UserController::class,'viewUserById']);
+Route::get('/admin/users', [UserController::class, 'viewAllUser']);
+Route::get('/admin/users/{id}', [UserController::class, 'viewUserById']);
 // Sửa
-Route::put('/admin/users/{id}/edit',[UserController::class,'editUserById']);
+Route::put('/admin/users/{id}/edit', [UserController::class, 'editUserById']);
 // Xóa
-Route::delete('/admin/users/{id}',[UserController::class,'deleteUserById']);
+Route::delete('/admin/users/{id}', [UserController::class, 'deleteUserById']);

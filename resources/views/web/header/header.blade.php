@@ -29,24 +29,25 @@
                         <a href="#" class="btn btn-secondary rounded-circle">
                             <i class="fa fa-user"></i>
                         </a>
-                        <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">Tài
-                            khoản</a>
+                        <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">
+                            {{Auth::user()->name}}
+                        </a>
                     </li>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         <a class="dropdown-item nutdangky text-center mb-2" href="{{ url('/register') }}">Đăng ký</a>
                         <a class="dropdown-item nutdangnhap text-center mb-2" href="{{ url('/login') }}" >Đăng nhập</a>
-                        <a class="dropdown-item nutdangnhap text-center" href="{{ url('logout_url') }}" >Đăng xuất</a>
+                        <a class="dropdown-item nutdangnhap text-center" href="{{ url('/logout') }}" >Đăng xuất</a>
                     </div>
                 </div>
+
 
                 <li class="nav-item giohang">
                     <a href="{{ url('/cart') }}" class="btn btn-secondary rounded-circle">
                         <i class="fa fa-shopping-cart"></i>
-                        <div class="cart-amount">0</div>
+
                     </a>
                     <a class="nav-link text-dark giohang text-uppercase" href="{{ url('/cart') }}"
-                       style="display:inline-block">Giỏ
-                        Hàng</a>
+                       style="display:inline-block">Giỏ Hàng</a>
                 </li>
             </ul>
         </div>

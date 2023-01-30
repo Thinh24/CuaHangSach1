@@ -46,7 +46,7 @@
                     {{$product -> quantity}}
                 </td>
                 <td>
-                    {{$product -> price}}{{" VND"}}
+                    {{number_format($product -> price)}}{{" VND"}}
                 </td>
                 <td>
                     {{$product -> ISBN}}

@@ -28,54 +28,48 @@
                         </div>
                         <div class="col-md-7">
                             <div class="gia">
-                                <div class="giabia">Giá bìa:<span class="giacu ml-2">  {{$products -> price}}</span></div>
+                                <div class="giabia"><span class="giacu ml-2"> </span></div>
                                 <div class="giaban">Giá bán tại Kim đồng: <span
-                                        class="giamoi font-weight-bold">  {{$products -> price}}</span><span class="donvitien">₫</span></div>
-                                <div class="tietkiem">Tiết kiệm: <b>5.000 ₫</b> <span class="sale">-20%</span>
+                                        class="giamoi font-weight-bold">  {{number_format($products -> price)}}</span><span class="donvitien">₫</span></div>
+                                <div class="tietkiem"> <span class="sale"></span>
                                 </div>
                             </div>
                             <div class="uudai my-3">
-                                <h6 class="header font-weight-bold">Khuyến mãi & Ưu đãi tại kim đồng:</h6>
-                                <ul>
-                                    <li><b>Miễn phí giao hàng </b>cho đơn hàng từ 150.000đ ở TP.HCM và 300.000đ ở
-                                        Tỉnh/Thành khác <a href="#">>> Chi tiết</a></li>
-                                    <li><b>Combo sách HOT - GIẢM 25% </b><a href="#">>>Xem ngay</a></li>
-                                    <li>Tặng Bookmark cho mỗi đơn hàng</li>
-                                    <li>Bao sách miễn phí (theo yêu cầu)</li>
-                                </ul>
+{{--                                Mục ưu đãi--}}
                             </div>
                             <div class="soluong d-flex">
-                                <label class="font-weight-bold">Số lượng: </label>
-                                <div class="input-number input-group mb-3">
-                                    <div class="input-group-prepend">
-                                        <span class="input-group-text btn-spin btn-dec">-</span>
-                                    </div>
-                                    <input type="text" value="1" class="soluongsp  text-center">
-                                    <div class="input-group-append">
-                                        <span class="input-group-text btn-spin btn-inc">+</span>
-                                    </div>
-                                </div>
+                                <label class="font-weight-bold">Số lượng: {{number_format($products -> quantity)}} </label>
+{{--                                <div class="input-number input-group mb-3">--}}
+{{--                                    <div class="input-group-prepend">--}}
+{{--                                        <span class="input-group-text btn-spin btn-dec">-</span>--}}
+{{--                                    </div>--}}
+{{--                                    <input type="text" value="1" class="soluongsp quantity text-center">--}}
+{{--                                    <div class="input-group-append">--}}
+{{--                                        <span class="input-group-text btn-spin btn-inc">+</span>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
                             </div>
-                            <div class="nutmua btn w-100 text-uppercase">Chọn mua</div>
-                            <a class="huongdanmuahang text-decoration-none" href="#">(Vui lòng xem hướng dẫn mua
-                                hàng)</a>
-                            <small class="share">Share: </small>
-                            <div class="fb-like" data-href="https://www.facebook.com/DealBook-110745443947730/"
-                                 data-width="300px" data-layout="button" data-action="like" data-size="small"
-                                 data-share="true"></div>
+                            <div
+                                data-url="{{route('addToCart', ['id'=>$products->id])}}"
+                                class="nutmua btn w-100 text-uppercase add_to_cart">
+                                Chọn mua
+                            </div>
+
+
                         </div>
                         <!-- thông tin khác của sản phẩm:  tác giả, ngày xuất bản, kích thước ....  -->
                         <div class="col-md-5">
                             <div class="thongtinsach">
                                 <ul>
                                     <li>Tác giả: <a href="#" class="tacgia">{{$products -> author}}</a></li>
-                                    <li>Ngày xuất bản: <b>04-2020</b></li>
-                                    <li>Kích thước: <b>20.5 x 13.5 cm</b></li>
-                                    <li>Dịch giả: Skye Phan;</li>
-                                    <li>{{$products -> id_publishers}}</li>
+                                    <li>Nhà Xuất bản: <a href="#" class="tacgia">
+                                        @forelse($publishers as $publisher)
+                                            @if($products -> id_publishers == $publisher -> id ) {{$publisher->namePublishers}}  @endif
+                                        @empty
+                                        @endforelse</a>
+                                    </li>
                                     <li>Hình thức bìa: <b>Bìa mềm</b></li>
-                                    <li>Số trang: <b>336</b></li>
-                                    <li>Cân nặng: <b>0</b></li>
+
                                 </ul>
                             </div>
                         </div>
@@ -92,10 +86,10 @@
                                aria-selected="true">Giới thiệu</a>
                             <a class="nav-item nav-link text-uppercase" id="nav-danhgia-tab" data-toggle="tab"
                                href="#nav-danhgia" role="tab" aria-controls="nav-danhgia"
-                               aria-selected="false">Đánh
-                                giá của độc giả</a>
+                               aria-selected="false">Đánh giá của độc giả</a>
                         </div>
                     </nav>
+
                     <!-- nội dung của từng tab  -->
                     <div class="tab-content" id="nav-tabContent">
                         <div class="tab-pane fade show active ml-3" id="nav-gioithieu" role="tabpanel"
@@ -193,3 +187,25 @@
     </div>
     <!-- het container  -->
 </section>
+<script>
+    function addTocart(event){
+        event.preventDefault();
+        let urlCart = $(this).data('url');
+        $.ajax({
+            type: "GET",
+            url: urlCart,
+            dataType:'json',
+            success: function (data){
+                if(data.code === 200)[
+                    alert('Them san pham thanh cong')
+                ]
+            },
+            error: function (){
+
+            }
+        });
+    }
+    $(function (){
+        $('.add_to_cart').on('click', addTocart);
+    });
+</script>

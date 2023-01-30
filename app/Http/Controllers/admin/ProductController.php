@@ -20,6 +20,7 @@ class ProductController extends Controller
 
     function viewAllProducts(Request $request){
         $publishers = publishers::all(['id','namePublishers']);
+
         $kw = $request->get('kw','');
         if(empty($kw)){
             $products = Product::paginate(5);

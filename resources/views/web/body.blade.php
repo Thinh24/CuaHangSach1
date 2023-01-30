@@ -13,7 +13,7 @@
                 <!-- 1 san pham -->
                 @foreach($products as $product)
                 <div class="card">
-                    <a href="{{ url('/home/'.$product->id) }}" class="motsanpham"
+                    <a href="{{url('/home/'.$product->id)}}" class="motsanpham"
                        style="text-decoration: none; color: black;" data-toggle="tooltip" data-placement="bottom"
                        title="">
                         <img class="card-img-top anh" src="{{asset( $product -> image )}}">
@@ -21,7 +21,7 @@
                             <h3 class="card-title ten">{{$product->nameProduct}}</h3>
                             <small class="tacgia text-muted">{{$product->author}}</small>
                             <div class="gia d-flex align-items-baseline">
-                                <div class="giamoi">{{$product->price}}</div>
+                                <div class="giamoi">{{number_format($product -> price)}}{{" VND"}}</div>
                             </div>
                             <div class="danhgia">
                                 <ul class="d-flex" style="list-style: none;">

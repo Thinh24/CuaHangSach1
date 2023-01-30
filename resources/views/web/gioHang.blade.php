@@ -7,19 +7,13 @@
     <meta name="keywords" content="nhà sách online, mua sách hay, sách hot, sách bán chạy, sách giảm giá nhiều">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     @include('web.headGioHang')
-
-
-
 </head>
-
 <body>
 <!-- header -->
 @include('web.header.header')
 @include('web.header.header3')
 <!-- header -->
-
 <!-- body -->
 <!-- giao diện giỏ hàng  -->
 <section class="content my-3">
@@ -31,7 +25,8 @@
                     <div class="py-3 pl-3">
                         <h6 class="header-gio-hang">GIỎ HÀNG CỦA BẠN <span>(0 sản phẩm)</span></h6>
                         <div class="cart-empty-content w-100 text-center justify-content-center">
-                            <img src="{{asset('tem/images/shopping-cart-not-product.png')}}" alt="shopping-cart-not-product">
+                            <img src="{{asset('tem/images/shopping-cart-not-product.png')}}"
+                                 alt="shopping-cart-not-product">
                             <p>Chưa có sản phẩm nào trong giở hàng của bạn</p>
                             <a href="/home" class="btn nutmuathem mb-3">Mua thêm</a>
                         </div>
@@ -40,39 +35,8 @@
 
                 <!-- giao diện giỏ hàng khi có hàng (phần comment màu xanh bên dưới là phần 2 sản phẩm trong giỏ hàng nhưng giờ đã demo bằng jquery) -->
                 <div class="col-md-8 cart">
-                    <div class="cart-content py-3 pl-3">
-                        <h6 class="header-gio-hang">GIỎ HÀNG CỦA BẠN</h6>
-                        @foreach($products as $productCart)
-                        <div class="cart-list-items">
-                            <div class="cart-item d-flex">
-                                <a href="{{ url('/home/'.$productCart->id)}}" class="img">
-                                    <img src="{{asset( $productCart->image)}}" class="img-fluid" alt="anhsp1">
-                                </a>
-                                <div class="item-caption d-flex w-100">
-                                    <div class="item-info ml-3">
-                                        <a href="{{ url('/home/'.$productCart->id)}}" class="ten">{{$productCart -> nameProduct}}</a>
-                                        <div class="soluong d-flex">
-                                            <div class="input-number input-group mb-3">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text btn-spin btn-dec">-</span>
-                                                </div>
-                                                <input type="text" value="1" class="soluongsp  text-center">
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text btn-spin btn-inc">+</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="item-price ml-auto d-flex flex-column align-items-end">
-                                        <div class="giamoi">{{$productCart->price}} ₫</div>
-                                        <div class="giacu">139.000 ₫</div>
-                                        <span class="remove mt-auto"><i class="far fa-trash-alt"></i></span>
-                                    </div>
-                                </div>
-                            </div>
-                            <hr>
-                        </div>
-                        @endforeach
+                    <div class="cart_wrapper">
+                        @include('web.components.cart_component')
                     </div>
                 </div>
 
@@ -175,14 +139,15 @@
                                                 <p>- Thời gian chuyển khoản là trong tối đa 2 ngày từ khi có xác
                                                     nhận đủ sách.</p>
                                                 <p>- Nội dung chuyển khoản cần ghi: <a href="#">[Mã đơn hàng]</a> ;
-                                                    hoặc <a href="#">[số điện thoại dùng đặt hàng]</a> </p>
+                                                    hoặc <a href="#">[số điện thoại dùng đặt hàng]</a></p>
                                                 <p>- Xem thông tin chuyển khoản của NetaBooks <a
-                                                        href="phuong-thuc-thanh-toan.html">tại đây</a> </p>
+                                                        href="phuong-thuc-thanh-toan.html">tại đây</a></p>
                                             </div>
                                         </div>
                                         <hr>
                                         <button class="btn btn-lg btn-block btn-checkout text-uppercase text-white"
-                                                style="background: #F5A623">Đặt mua</button>
+                                                style="background: #F5A623">Đặt mua
+                                        </button>
                                         <p class="text-center note-before-checkout">(Vui lòng kiểm tra lại đơn hàng
                                             trước khi Đặt Mua)</p>
                                     </div>
@@ -252,6 +217,54 @@
 <!-- footer  -->
 @include('web.footer')
 <!-- footer  -->
+<script>
+    function cartUpdate(event) {
+        event.preventDefault();
+        let urlUpdateCart = $('.update_cart_url').data('url');
+        let id = $(this).data('id');
+        let quantity = $(this).parents('tr').find('input.quantity').val();
+
+        $.ajax({
+            type: "GET",
+            url: urlUpdateCart,
+            data: {id: id, quantity: quantity },
+            success: function (data) {
+                if(data.code === 200){
+                    $('.cart_wrapper').html(data.cart_component);
+                    alert('cap nhat thanh cong');
+                }
+            },
+            error: function (){
+
+            }
+        });
+    }
+    function cartDelete(event){
+        event.preventDefault();
+        let urlDelete = $('.cart-content').data('url');
+        let id = $(this).data('id');
+        $.ajax({
+            type: "GET",
+            url: urlDelete,
+            data: {id: id},
+            success: function (data) {
+                if(data.code === 200){
+                    $('.cart_wrapper').html(data.cart_component);
+                    alert('Xoa thanh cong');
+                }
+            },
+            error: function (){
+
+            }
+        });
+    }
+
+    $(function () {
+        $(document).on('click', '.cart_update', cartUpdate);
+        $(document).on('click', '.cart_delete', cartDelete);
+
+    })
+</script>
 </body>
 
 </html>
