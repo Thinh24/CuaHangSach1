@@ -37,6 +37,10 @@ Route::post('/login', [WebController::class, 'login']);
 // Đăng xuất
 Route::post('/logout', [WebController::class, 'logout']);
 
+Route::get('/logout', ['as' => 'admin.logout', 'uses' => 'AdminController@logout']);
+
+Route::get('/logout', [WebController::class, 'logout']);
+
 
 Route::get('admin/home', [AdminController::class, 'viewHome']);
 
