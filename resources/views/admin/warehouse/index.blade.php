@@ -3,6 +3,7 @@
 @section('content')
     <h1>All Warehouses</h1>
     <br>
+    <a href="{{url('admin/warehouse/create')}}">Thêm Nhập Kho</a>
     <form >
         <input name="kw" class="form-control" type="text" placeholder="Nhập từ khóa cần tìm kiếm">
         <button type="submit" hidden class="btn btn-primary">Tìm</button>
@@ -18,7 +19,7 @@
             <tr>
                 <td>{{$warehouse->id }}</td>
                 <td>
-                    {{$warehouse -> date}}
+                    {{$warehouse -> created_at}}
                 </td>
                 <td>
                     {{$warehouse -> id_users}}
