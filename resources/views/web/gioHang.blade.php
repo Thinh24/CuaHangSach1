@@ -50,12 +50,13 @@
                                 <h5 class="mb-0">
                                     <a data-toggle="collapse" data-parent="#cart-steps-accordion"
                                        href="#step2contentid" aria-expanded="true" aria-controls="step2contentid"
-                                       class="text-uppercase header"><span class="steps">2</span>
+                                       class="text-uppercase header"><span class="steps">1</span>
                                         <span class="label">Địa chỉ giao hàng</span>
                                         <i class="fa fa-chevron-right float-right"></i>
                                     </a>
                                 </h5>
                             </div>
+
                             <div id="step2contentid" class="collapse in" role="tabpanel"
                                  aria-labelledby="step2header" class="stepscontent">
                                 <div class="card-body">
@@ -99,7 +100,7 @@
                                         <a data-toggle="collapse" data-parent="#cart-steps-accordion"
                                            href="#step3contentid" aria-expanded="true"
                                            aria-controls="step3contentid" class="text-uppercase header"><span
-                                                class="steps">3</span>
+                                                class="steps">2</span>
                                             <span class="label">Thanh toán đặt mua</span>
                                             <i class="fa fa-chevron-right float-right"></i>
                                         </a>
@@ -108,32 +109,18 @@
                                 <div id="step3contentid" class="collapse in" role="tabpanel"
                                      aria-labelledby="step3header" class="stepscontent">
                                     <div class="card-body" style="padding: 15px;">
-                                        <div class="goigiaohang">
-                                            <h6 class="header text-uppercase">Chọn gói giao hàng</h6>
-                                            <div class="option">
-                                                <input type="radio" name="goigiaohang" id="ghtc" checked>
-                                                <label for="ghtc">Giao hàng tiêu chuẩn</label>
-                                                <p>Từ 1-3 ngày tại TP. Hồ Chí Minh; từ 3-5 ngày đối với các Tỉnh /
-                                                    Thành khác</p>
-                                            </div>
-                                            <div class="option">
-                                                <input type="radio" name="goigiaohang" id="ghn">
-                                                <label for="ghn">Giao hàng nhanh</label>
-                                                <p>1 ngày tại TP. Hồ Chí Minh; từ 2-3 ngày đối với các Tỉnh / Thành
-                                                    khác</p>
-                                            </div>
-                                        </div>
-                                        <hr>
+
                                         <div class="pttt">
                                             <h6 class="header text-uppercase">Chọn phương thức thanh toán</h6>
-                                            <div class="option mb-2">
-                                                <input type="radio" name="pttt" id="cod" checked>
-                                                <label for="cod">Thanh toán bằng tiền mặt khi nhận hàng</label>
-                                            </div>
-                                            <div class="option option2">
-                                                <input type="radio" name="pttt" id="atm">
-                                                <label for="atm" class="chuyenkhoan">Thanh toán chuyển khoản trước
-                                                    qua Thẻ ATM/Internet Banking</label>
+                                            <select name="pttt" class="form-control" >
+                                                @forelse($payments as $payment)
+                                                    <option value="{{$payment->id}}">{{$payment->paymentName}}</option>
+                                                @empty
+                                                    <option>Không có nhà xuất bản nào</option>
+                                                @endforelse
+                                            </select>
+
+
                                                 <p class="mt-4">- Quý khách chỉ chuyển khoản khi được xác nhận có đủ
                                                     sách qua điện thoại từ DealBook.</p>
                                                 <p>- Thời gian chuyển khoản là trong tối đa 2 ngày từ khi có xác
@@ -144,10 +131,10 @@
                                                         href="phuong-thuc-thanh-toan.html">tại đây</a></p>
                                             </div>
                                         </div>
+
                                         <hr>
                                         <button class="btn btn-lg btn-block btn-checkout text-uppercase text-white"
-                                                style="background: #F5A623">Đặt mua
-                                        </button>
+                                                style="background: #F5A623"> Đặt mua </button>
                                         <p class="text-center note-before-checkout">(Vui lòng kiểm tra lại đơn hàng
                                             trước khi Đặt Mua)</p>
                                     </div>

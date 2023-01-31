@@ -47,14 +47,16 @@ Route::get('admin/home', [AdminController::class, 'viewHome']);
 // Xem Product Detail
 Route::get('/home/{id}', [WebController::class, 'viewProductDetail']);
 //Them vao gio hang
-Route::get('/home/{id}/add-to-cart', [WebController::class, 'addToCart'])->name('addToCart');
+Route::get('/home/{id}/add-to-cart', [\App\Http\Controllers\admin\BillController::class, 'addToCart'])->name('addToCart');
 // Xem gio hang
-Route::get('/cart', [WebController::class, 'viewCart']);
+Route::get('/cart', [\App\Http\Controllers\admin\BillController::class, 'viewCart']);
 //Cap nhat gio hang
-Route::get('/update-cart', [WebController::class, 'updateCart'])->name('updateCart');
+Route::get('/update-cart', [\App\Http\Controllers\admin\BillController::class, 'updateCart'])->name('updateCart');
 //Xoa Gio hang
-Route::get('/delete-cart', [WebController::class, 'deleteCart'])->name('deleteCart');
+Route::get('/delete-cart', [\App\Http\Controllers\admin\BillController::class, 'deleteCart'])->name('deleteCart');
 
+//Mua hàng
+Route::post('/cart/mua', [\App\Http\Controllers\admin\BillController::class, 'createBill']);
 
 // Products
 // Tạo
@@ -71,10 +73,11 @@ Route::put('/admin/products/{id}/edit', [ProductController::class, 'updateProduc
 // Xóa
 Route::delete('/admin/products/{id}', [ProductController::class, 'deleteProductById']);
 
-// Warehose
+// Warehouse
 //Xem
 Route::get('/admin/warehouses', [WarehouseController::class, 'viewWarehouse']);
 Route::get('/admin/warehouses/{id}', [WarehouseController::class, 'viewWarehouseById']);
+
 // Nxb
 // Tạo
 Route::get('/admin/publishers/create', [PublishersController::class, 'viewCreateNhaXuatBan']);
@@ -103,8 +106,9 @@ Route::put('/admin/supplier/{id}/edit', [SuppliersController::class, 'updateNhaC
 // Xóa
 Route::delete('/admin/supplier/{id}', [SuppliersController::class, 'deleteNhaCungCapById']);
 
-
+//xem user
 Route::get('/admin/users', [UserController::class, 'viewAllUser']);
+//Xem user theo id
 Route::get('/admin/users/{id}', [UserController::class, 'viewUserById']);
 // Sửa
 Route::put('/admin/users/{id}/edit', [UserController::class, 'editUserById']);
