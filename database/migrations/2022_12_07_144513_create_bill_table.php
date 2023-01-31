@@ -15,10 +15,9 @@ return new class extends Migration
     {
         Schema::create('bill', function (Blueprint $table) {
             $table->id();
-            $table->date('date');
             $table->string('status');
             $table->foreignId('id_users')->constrained('users');
-            $table->foreignId('id_payment')->constrained('payment');
+            $table->foreignId('id_payment')->constrained('payments');
             $table->timestamps();
         });
     }
