@@ -89,8 +89,8 @@ class BillController extends Controller
 
             $billDetails->id_bill = $bill_id;
             $billDetails->id_products = $bill_details['id'];
-            $billDetails->price = $bill_details['price'];
             $billDetails->quantity = $bill_details['quantity'];
+            $billDetails->price = $bill_details['price'] * $bill_details['quantity'];
             $billDetails->save();
 
         }
