@@ -37,6 +37,18 @@
 
 <style>img[alt="www.000webhost.com"]{display: none;}</style>
 
+{{--allsp--}}
+{{--<link rel="stylesheet" href="{{asset('tem/https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css')}}">--}}
+
+{{--<link rel="stylesheet" href="{{asset('tem/css/product-item.css')}}">--}}
+
+{{--<link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css')}}" />--}}
+
+{{--<script src="{{asset('https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js')}}"></script>--}}
+
+{{--<script type="text/javascript" src="{{asset('http://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js')}}"></script>--}}
+
+{{--<script src="{{asset('https://unpkg.com/isotope-layout@3/dist/isotope.pkgd.min.js')}}"></script>--}}
 
 
 {{--detai--}}

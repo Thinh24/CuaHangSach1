@@ -19,7 +19,7 @@
                             <div class="item-caption d-flex w-100">
                                 <td style="width: 70px">
                                     <div class="item-info ml-3">
-                                        <a href="" class="ten">{{$productCart['name']}}</a>
+                                        <a href="" class="ten"></a>
                                         <div class="soluong d-flex">
                                             <div class="input-number input-group mb-3">
                                                 <div class="input-group-prepend">

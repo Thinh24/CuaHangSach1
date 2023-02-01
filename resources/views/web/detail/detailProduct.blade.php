@@ -2,9 +2,7 @@
 
 
 <head>
-    @include('web.detail.headDetail')
-
-
+ @include('web.detail.headDetail')
 </head>
 
 <body>

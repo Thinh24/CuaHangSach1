@@ -21,6 +21,20 @@ class WebController extends Controller
         return view('web.home', ['products' => $products]);
     }
 
+    function viewHomeAllSp(Request $request){
+
+        $kw = $request->get('kw','');
+        if(empty($kw)){
+            $products = Product::paginate(8);
+        }
+        else{
+            $products = Product::where('id','LIKE','%'.$kw.'%')
+                ->orWhere('tenSanPham','LIKE','%'.$kw.'%')
+                ->paginate(8);
+        }
+        return view('web/bodyallsp', ['products' => $products]);
+    }
+
     // GET: localhost/login
     function viewLogin()
     {

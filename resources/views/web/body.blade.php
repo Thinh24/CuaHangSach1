@@ -4,8 +4,8 @@
             <div class="row">
                 <!--header-->
                 <div class="col-12 d-flex justify-content-between align-items-center pb-2 bg-transparent pt-4">
-                    <h1 class="header text-uppercase" style="font-weight: 400;">SÁCH MỚI TUYỂN CHỌN</h1>
-                    <a href="sach-moi-tuyen-chon.html" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
+                    <h1 class="header text-uppercase" style="font-weight: 400;">SÁCH MỚI</h1>
+                    <a href="{{url('/home/bodyallsp')}}" class="btn btn-warning btn-sm text-white">Xem tất cả</a>
                 </div>
             </div>
 
@@ -21,7 +21,7 @@
                             <h3 class="card-title ten">{{$product->nameProduct}}</h3>
                             <small class="tacgia text-muted">{{$product->author}}</small>
                             <div class="gia d-flex align-items-baseline">
-                                <div class="giamoi">{{number_format($product -> price)}}{{" VND"}}</div>
+                                <div class="giamoi">{{number_format($product -> price)}}VND</div>
                             </div>
                             <div class="danhgia">
                                 <ul class="d-flex" style="list-style: none;">

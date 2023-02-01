@@ -20,31 +20,18 @@
     <div class="container">
         <div class="cart-page bg-white">
             <div class="row">
-                <!-- giao diện giỏ hàng khi không có item  -->
-                <div class="col-12 cart-empty d-none">
-                    <div class="py-3 pl-3">
-                        <h6 class="header-gio-hang">GIỎ HÀNG CỦA BẠN <span>(0 sản phẩm)</span></h6>
-                        <div class="cart-empty-content w-100 text-center justify-content-center">
-                            <img src="{{asset('tem/images/shopping-cart-not-product.png')}}"
-                                 alt="shopping-cart-not-product">
-                            <p>Chưa có sản phẩm nào trong giở hàng của bạn</p>
-                            <a href="/home" class="btn nutmuathem mb-3">Mua thêm</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- giao diện giỏ hàng khi có hàng (phần comment màu xanh bên dưới là phần 2 sản phẩm trong giỏ hàng nhưng giờ đã demo bằng jquery) -->
                 <div class="col-md-8 cart">
                     <div class="cart_wrapper">
+
                         @include('web.components.cart_component')
+
                     </div>
                 </div>
-
                 <!-- giao diện phần thanh toán nằm bên phải  -->
                 <div class="col-md-4 cart-steps pl-0">
                     <div id="cart-steps-accordion" role="tablist" aria-multiselectable="true">
-                        <!-- bước số 1: đăng nhập hoặc đăng ký -->
-                        <!-- bước số 2: nhập địa chỉ giao hàng  -->
+                        <!-- bước số 1: nhập địa chỉ giao hàng  -->
+
                         <div class="card">
                             <div class="card-header" role="tab" id="step2header">
                                 <h5 class="mb-0">
@@ -78,22 +65,15 @@
                                                    placeholder="Nhập Địa chỉ giao hàng" name="address" required>
                                         </div>
                                         <div class="form-label-group">
-                                            <input type="text" id="inputCity" class="form-control"
-                                                   placeholder="Nhập Tỉnh/Thành phố" name="city" required>
-                                        </div>
-                                        <div class="form-label-group">
-                                            <input type="text" id="inputDistrict" class="form-control"
-                                                   placeholder="Nhập Quận/Huyện" name="district" required>
-                                        </div>
-                                        <div class="form-label-group">
                                                 <textarea type="text" id="inputNote" class="form-control"
                                                           placeholder="Nhập ghi chú (Nếu có)" name="note"></textarea>
                                         </div>
                                     </form>
                                 </div>
                             </div>
-
-                            <!-- bước 3: thanh toán đặt mua  -->
+                            <form method="POST" >
+                                @csrf
+                            <!-- bước 2: thanh toán đặt mua  -->
                             <div class="card">
                                 <div class="card-header" role="tab" id="step3header">
                                     <h5 class="mb-0">
@@ -110,36 +90,39 @@
                                      aria-labelledby="step3header" class="stepscontent">
                                     <div class="card-body" style="padding: 15px;">
 
-                                        <div class="pttt">
+                                        <div>
                                             <h6 class="header text-uppercase">Chọn phương thức thanh toán</h6>
-                                            <select name="pttt" class="form-control" >
+                                            <select name="pttt" class="form-control">
                                                 @forelse($payments as $payment)
                                                     <option value="{{$payment->id}}">{{$payment->paymentName}}</option>
                                                 @empty
                                                     <option>Không có nhà xuất bản nào</option>
                                                 @endforelse
                                             </select>
-
-
-                                                <p class="mt-4">- Quý khách chỉ chuyển khoản khi được xác nhận có đủ
-                                                    sách qua điện thoại từ DealBook.</p>
-                                                <p>- Thời gian chuyển khoản là trong tối đa 2 ngày từ khi có xác
-                                                    nhận đủ sách.</p>
-                                                <p>- Nội dung chuyển khoản cần ghi: <a href="#">[Mã đơn hàng]</a> ;
-                                                    hoặc <a href="#">[số điện thoại dùng đặt hàng]</a></p>
-                                                <p>- Xem thông tin chuyển khoản của NetaBooks <a
-                                                        href="phuong-thuc-thanh-toan.html">tại đây</a></p>
-                                            </div>
                                         </div>
-
+                                        <div>
+                                            @auth
+                                                <select name="nameUser" class="select form-control" id="lang" hidden="hidden">
+                                                        <option value="{{Auth::user()->id}}">{{Auth::user()->id}}</option>
+                                                </select>
+                                            @else
+                                            @endauth
+                                        </div>
+                                        <div>
+                                            <select name="status" class="select form-control" id="lang" hidden="hidden">
+                                                <option value="0"></option>
+                                            </select>
+                                        </div>
                                         <hr>
-                                        <button class="btn btn-lg btn-block btn-checkout text-uppercase text-white"
-                                                style="background: #F5A623"> Đặt mua </button>
+                                        <button class="btn btn-primary btn-lg btn-block btn-checkout text-uppercase text-white"
+                                                style="background: #F5A623"> Đặt mua
+                                        </button>
                                         <p class="text-center note-before-checkout">(Vui lòng kiểm tra lại đơn hàng
                                             trước khi Đặt Mua)</p>
                                     </div>
                                 </div>
                             </div>
+                            </form>
 
                         </div>
 
@@ -214,19 +197,20 @@
         $.ajax({
             type: "GET",
             url: urlUpdateCart,
-            data: {id: id, quantity: quantity },
+            data: {id: id, quantity: quantity},
             success: function (data) {
-                if(data.code === 200){
+                if (data.code === 200) {
                     $('.cart_wrapper').html(data.cart_component);
-                    alert('cap nhat thanh cong');
+                    alert('Cập nhật thành công');
                 }
             },
-            error: function (){
+            error: function () {
 
             }
         });
     }
-    function cartDelete(event){
+
+    function cartDelete(event) {
         event.preventDefault();
         let urlDelete = $('.cart-content').data('url');
         let id = $(this).data('id');
@@ -235,12 +219,12 @@
             url: urlDelete,
             data: {id: id},
             success: function (data) {
-                if(data.code === 200){
+                if (data.code === 200) {
                     $('.cart_wrapper').html(data.cart_component);
-                    alert('Xoa thanh cong');
+                    alert('Xóa thành công');
                 }
             },
-            error: function (){
+            error: function () {
 
             }
         });

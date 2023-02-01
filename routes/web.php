@@ -20,14 +20,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', function () {return view('welcome');});
 
 
 Route::get('/', [WebController::class, 'viewHome']);
 
+
 Route::get('/home', [WebController::class, 'viewHome']);
+Route::get('/home/bodyallsp', [WebController::class, 'viewHomeAllSp']);
 // Đăng ký
 Route::get('/register', [WebController::class, 'viewRegister']);
 Route::post('/register', [WebController::class, 'createRegister']);
@@ -56,7 +56,7 @@ Route::get('/update-cart', [\App\Http\Controllers\admin\BillController::class, '
 Route::get('/delete-cart', [\App\Http\Controllers\admin\BillController::class, 'deleteCart'])->name('deleteCart');
 
 //Mua hàng
-Route::post('/cart/mua', [\App\Http\Controllers\admin\BillController::class, 'createBill']);
+Route::post('/cart', [\App\Http\Controllers\admin\BillController::class, 'createBill']);
 
 // Products
 // Tạo

@@ -18,6 +18,7 @@
 <!-- header -->
 <!-- body -->
 @include('web.body')
+
 <!-- body -->
 <!-- footer  -->
 @include('web.footer')

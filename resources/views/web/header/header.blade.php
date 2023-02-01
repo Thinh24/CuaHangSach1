@@ -12,7 +12,7 @@
             <!-- form tìm kiếm  -->
             <form class="form-inline ml-auto my-2 my-lg-0 mr-3">
                 <div class="input-group" style="width: 520px;">
-                    <input type="text" class="form-control" aria-label="Small"
+                    <input type="text" class="form-control" name="kw" aria-label="Small"
                            placeholder="Nhập sách cần tìm kiếm...">
                     <div class="input-group-append">
                         <button type="button" class="btn" style="background-color: #CF111A; color: white;">
@@ -35,28 +35,26 @@
                                     <a class="nav-link text-dark text-uppercase" href="#"
                                        style="display:inline-block">{{Auth::user()->name}}</a>
                                 @else
-
                                 @endauth
                             @else
-                                <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">Tài
-                                    khoản</a>
+                                <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">Tài khoản</a>
                             @endif
                         </a>
-
                     </li>
+
                     @if (Auth::check())
                         @auth
                             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                <a class="dropdown-item nutdangnhap text-center" href="">Thông tin tài khoản</a>
-                                <br>
-                                <a class="dropdown-item nutdangnhap text-center" href="{{ url('/logout') }}">Đăng xuất</a>
+                                <a class="dropdown-item nutdangky text-center mb-2" href="">Thông tin tài khoản</a>
+
+                                <a class="dropdown-item nutdangnhap text-center mb-2" href="{{ url('/logout') }}">Đăng xuất</a>
                             </div>
                         @else
-
                         @endauth
                     @else
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                             <a class="dropdown-item nutdangky text-center mb-2" href="{{ url('/register') }}">Đăng ký</a>
+
                             <a class="dropdown-item nutdangnhap text-center mb-2" href="{{ url('/login') }}">Đăng nhập</a>
                         </div>
                     @endif
