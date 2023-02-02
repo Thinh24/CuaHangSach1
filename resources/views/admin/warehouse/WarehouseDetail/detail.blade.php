@@ -6,7 +6,7 @@
 @section('content')
 
     @if($warehouses == null)
-        <hi> Kho khong ton tai</hi>
+        <hi> Nhap khong ton tai</hi>
     @else
         <table class="table table-bordered table-striped table-responsive-md ">
             <tr class="table-primary">
@@ -17,19 +17,19 @@
                 <th>Price</th>
             </tr>
             <tr>
-{{--                <td>{{$warehouse_details->id }}</td>--}}
+                <td>{{$warehouse_details->id }}</td>
                 <td>
-                    {{$warehouses -> id_Warehouse}}
+                    {{$warehouses_details -> id_warehouses}}
                 </td>
                 <td>
-                    {{$warehouses -> id_products}}
+                    {{$warehouses_details -> id_products}}
                 </td>
-{{--                <td>--}}
-{{--                    {{$warehouse_details -> quantity}}--}}
-{{--                </td>--}}
-{{--                <td>--}}
-{{--                    {{$warehouse_details -> price}}{{(" VND")}}--}}
-{{--                </td>--}}
+                <td>
+                    {{$warehouse_details -> quantity}}
+                </td>
+                <td>
+                    {{$warehouse_details -> price}}{{(" VND")}}
+                </td>
             </tr>
         </table>
         <div class="row">

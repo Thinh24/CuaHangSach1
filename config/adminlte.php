@@ -309,7 +309,7 @@ return [
 
         [
             'text' => 'Thống Kê',
-            'url' => 'admin/pages',
+            'url' => 'admin/home',
             'icon' => 'fas fa-home text-success',
             'label_color' => 'success',
         ],

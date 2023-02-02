@@ -28,6 +28,8 @@
                     {{$warehouse -> id_storage}}
                 </td>
                 <td>
+
+                    <a href="{{ url('admin/warehouses/createWarehouseDetail')}} " class="btn btn-success">Thêm Chi Tiết Nhập Kho</a>
                     <a href="{{ url('admin/warehouses/'.$warehouse->id )}} " class="btn btn-success">Chi tiết</a>
                     @csrf
                     @method('')

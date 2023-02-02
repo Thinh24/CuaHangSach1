@@ -29,6 +29,11 @@
                         <a href="#" class="btn btn-secondary rounded-circle">
                             <i class="fa fa-user"></i>
                         </a>
+                        @if(Auth::id()==0)
+                            <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">
+                                Tai Khoan
+                            </a>
+                        @else
                         <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">
                             @if (Auth::check())
                                 @auth
@@ -40,6 +45,7 @@
                                 <a class="nav-link text-dark text-uppercase" href="#" style="display:inline-block">Tài khoản</a>
                             @endif
                         </a>
+                        @endif
                     </li>
 
                     @if (Auth::check())
