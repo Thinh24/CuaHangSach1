@@ -4,6 +4,11 @@
         @php
             $total = 0;
         @endphp
+        @if($carts == null)
+            <br>
+            <hi>Không có sản phẩm nào</hi>
+            <br>
+        @else
         @foreach($carts as $id => $productCart)
             @php
                 $total += $productCart['price'] * $productCart['quantity'];
@@ -49,7 +54,7 @@
                                     <div class="item-price ml-auto  align-items-end">
                                         <a href="" data-id="{{$id}}" class="btn btn-primary cart_update"> Cập Nhật </a>
 
-                                        <a href="" data-id="{{$id}}" class="btn btn-danger cart_delete"> Xóa </a>
+                                        <a href="" onsubmit=" return confirm('Bạn có muốn xóa không')" data-id="{{$id}}" class="btn btn-danger cart_delete"> Xóa </a>
                                     </div>
                                 </td>
                             </div>
@@ -62,6 +67,7 @@
 
             </div>
         @endforeach
+        @endif
     </div>
     <div class="d-flex justify-content-between align-items-center">
         <strong class="text-uppercase">Tổng cộng:</strong>

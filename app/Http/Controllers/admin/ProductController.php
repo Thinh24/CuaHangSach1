@@ -20,16 +20,8 @@ class ProductController extends Controller
 
     function viewAllProducts(Request $request){
         $publishers = publishers::all(['id','namePublishers']);
+        $products = Product::all();
 
-        $kw = $request->get('kw','');
-        if(empty($kw)){
-            $products = Product::paginate(5);
-        }
-        else{
-            $products = Product::where('id','LIKE','%'.$kw.'%')
-                ->orWhere('tenSanPham','LIKE','%'.$kw.'%')
-                ->paginate(5);
-        }
         return view('admin/product/index', ['products' => $products],['publishers'=>$publishers]);
     }
 
@@ -84,8 +76,7 @@ class ProductController extends Controller
     }
     function updateProductById(Request $request, $id){
         $product = Product::find($id);
-        // Ten anh cu
-        // Xem anh gui len co hop le hay ko?
+
         if ($request->file('image') != null && $request->file('image')->isValid()) {
             $imageName = time() . "." . $request->file('image')->extension();
             $request->file('image')->move(public_path('image'), $imageName);

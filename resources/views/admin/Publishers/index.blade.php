@@ -24,7 +24,7 @@
                     <a href="{{ url('admin/publishers/'.$publisher->id.'/edit' )}} " class="btn btn-success">Sửa</a>
                     @csrf
                     @method('')
-                    <form onsubmit=" return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/publishers/'.$publisher->id)}}">
+                    <form onsubmit="return confirm('Bạn có muốn xóa không')" method="POST" action="{{url('/admin/publishers/'.$publisher->id)}}">
                         @csrf
                         @method('DELETE')
                         <button type="submit" class="btn btn-danger">Xóa</button>

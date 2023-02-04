@@ -9,8 +9,5 @@ class Bill extends Model
 {
     use HasFactory;
 
-    protected $table ='bills';
-    public function cus(){
-        return $this->hasOne(User::class,'id','id_users');
-    }
+
 }

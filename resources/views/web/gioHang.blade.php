@@ -30,8 +30,9 @@
                 <!-- giao diện phần thanh toán nằm bên phải  -->
                 <div class="col-md-4 cart-steps pl-0">
                     <div id="cart-steps-accordion" role="tablist" aria-multiselectable="true">
+                        <form method="POST" >
+                            @csrf
                         <!-- bước số 1: nhập địa chỉ giao hàng  -->
-
                         <div class="card">
                             <div class="card-header" role="tab" id="step2header">
                                 <h5 class="mb-0">
@@ -57,10 +58,6 @@
                                                    placeholder="Nhập số điện thoại" name="phone" required>
                                         </div>
                                         <div class="form-label-group">
-                                            <input type="email" id="inputEmail" class="form-control"
-                                                   placeholder="Nhập địa chỉ email" name="email" required>
-                                        </div>
-                                        <div class="form-label-group">
                                             <input type="text" id="inputAddress" class="form-control"
                                                    placeholder="Nhập Địa chỉ giao hàng" name="address" required>
                                         </div>
@@ -71,8 +68,7 @@
                                     </form>
                                 </div>
                             </div>
-                            <form method="POST" >
-                                @csrf
+
                             <!-- bước 2: thanh toán đặt mua  -->
                             <div class="card">
                                 <div class="card-header" role="tab" id="step3header">
@@ -114,18 +110,27 @@
                                             </select>
                                         </div>
                                         <hr>
-                                        <button class="btn btn-primary btn-lg btn-block btn-checkout text-uppercase text-white"
-                                                style="background: #F5A623"> Đặt mua
-                                        </button>
-                                        <p class="text-center note-before-checkout">(Vui lòng kiểm tra lại đơn hàng
-                                            trước khi Đặt Mua)</p>
+                                        @if (Auth::check())
+                                            @auth
+                                                <button class="btn btn-primary btn-lg btn-block btn-checkout text-uppercase text-white"
+                                                        style="background: #F5A623"> Đặt mua
+                                                </button>
+                                                <p class="text-center note-before-checkout">(Vui lòng kiểm tra lại đơn hàng
+                                                    trước khi Đặt Mua)</p>
+                                            @else
+                                            @endauth
+                                        @else
+                                            <a class="dropdown-item nutdangnhap text-center mb-2" href="{{ url('/login') }}">Đăng nhập</a>
+                                            <p class="text-center note-before-checkout">(Vui lòng đăng nhập để Đặt Mua)</p>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
+                            </div>
+{{--                                endform--}}
                             </form>
 
                         </div>
-
                     </div>
                 </div>
                 <!-- het div cart-steps  -->

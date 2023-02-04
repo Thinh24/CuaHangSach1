@@ -14,11 +14,20 @@ class WebController extends Controller
     // Cac trang chung, xử lý chung bên này
 
     // GET: localhost/home
-    function viewHome()
+    function viewHome(Request $request)
     {
-        $products = Product::all();
-//        dd($products);
-        return view('web.home', ['products' => $products]);
+        $kw = $request->get('kw','');
+        if(empty($kw)){
+            $products = Product::all();
+            return view('web.home', ['products' => $products]);
+        }
+        else{
+            $products = Product::where('id','LIKE',$kw)
+                ->orWhere('nameProduct','LIKE','%'.$kw.'%')
+                ->paginate(8);
+            return view('web/bodyallsp', ['products' => $products]);
+        }
+
     }
 
     function viewHomeAllSp(Request $request){
@@ -28,8 +37,8 @@ class WebController extends Controller
             $products = Product::paginate(8);
         }
         else{
-            $products = Product::where('id','LIKE','%'.$kw.'%')
-                ->orWhere('tenSanPham','LIKE','%'.$kw.'%')
+            $products = Product::where('id','LIKE',$kw)
+                ->orWhere('nameProduct','LIKE','%'.$kw.'%')
                 ->paginate(8);
         }
         return view('web/bodyallsp', ['products' => $products]);
@@ -94,12 +103,23 @@ class WebController extends Controller
     }
 
 
-    function viewProductDetail($id)
+    function viewProductDetail(Request $request, $id)
     {
+        $kw = $request->get('kw','');
+        if(empty($kw)){
+
         $publishers = publishers::all(['id', 'namePublishers']);
         $products = Product::find($id);
         return view('web.detail.detailProduct', ['products' => $products], ['publishers' => $publishers]);
-    }
+        }
 
+        else{
+            $products = Product::where('id','LIKE',$kw)
+                ->orWhere('nameProduct','LIKE','%'.$kw.'%')
+                ->paginate(8);
+            return view('web/bodyallsp', ['products' => $products]);
+        }
+
+    }
 
 }
